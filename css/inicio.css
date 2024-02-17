@@ -1,0 +1,253 @@
+:root {
+    /* colors */
+    --blue: #2339BC;
+    --green: #acdb04;
+    --nav-height: 60px;
+    /* text size */
+    --title-size: 47px;
+    --title-xsm-size: 43px;
+
+    --text-size: 19px;
+    --text-xsm-size: 17px;
+
+    --text-nav-xxl-size: 20px;
+    --text-nav-size: 16px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+nav ul > li {
+    margin-inline: 1em;
+}
+
+nav {
+    /* cambiar a 4 cuando quite prueba */
+    font-size: var(--text-nav-xxl-size);
+    z-index: 5;
+    position: fixed;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.115);
+    width: 100%;
+    visibility: hidden;
+}
+
+#navContainer {
+    min-height: var(--nav-height);
+}
+
+.rowContainer {
+    display: flexbox;
+    justify-content: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 1600px;
+}
+
+#navbarNav {
+    display: flexbox;
+    justify-content: start;
+    padding-inline: 2.5em;
+}
+
+#navbarNav svg {
+    fill: var(--green);
+    margin-inline: 1em;
+}
+
+.absolute {
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    padding: 0px;
+}
+
+.cover h1 {
+    font-size: 49px;
+    font-weight: bold;
+    letter-spacing: .01em;
+}
+
+.cover p {
+    font-size: 21px;
+    letter-spacing: .01em;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.cover {
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--blue);
+}
+
+.cover span {
+    left: 0;
+    z-index: 3;
+}
+
+#coverText svg{
+    display: none;
+    fill: var(--green);
+}
+
+#coverText{
+    height: inherit;
+}
+
+#backG {
+    z-index: 1;
+    width: 136%;
+}
+
+#blue {
+    z-index: 0;
+    padding: 0;
+    /* z-index: 4; */
+}
+
+#prueba {
+    /* z-index: 0; */
+    z-index: 4;
+    visibility: hidden;
+}
+
+/* #blue, #backG{
+    visibility: hidden;
+} */
+
+#devices{
+    z-index: 2;
+    width: 61%;
+    top: 28%;
+    right: 3.5%;
+}
+
+#menu {
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: 2.45em;
+}
+
+#menu a {
+    font-size: 17px;
+    font-weight: 450;
+    color: white;
+    padding-inline: 2.35em;
+    text-decoration: none;
+}
+
+#title{
+    top: 8em;
+    left: 6em;
+    position: absolute;
+    width: fit-content;
+}
+
+@media screen and (max-width: 1500px){
+    nav {
+        font-size: var(--text-nav-size);
+    }
+}
+
+@media screen and (max-width: 1285px){
+    #menu {
+        display: none;
+    }
+
+    #cover > *, #backG{
+        margin-top: var(--nav-height);
+    }
+
+    nav {
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 887px){
+    /* aquí si voy a dejar el font-size porque no lo pongo en js */
+    .cover h1 {
+        font-size: var(--title-size);
+    }
+    
+    .cover p {
+        font-size: var(--text-size);
+    }
+
+    #devices, #backG {
+        visibility: hidden;
+    }
+
+    #blue {
+        position: relative;
+        object-fit: cover;
+    }
+
+    #cover {
+        height: 470px;
+        overflow: hidden;
+    }
+
+    #title {
+        top: 0;
+        left: 0;
+        position: relative;
+        color: white;
+        display: inline-block;
+        padding-inline: 1em;
+    }
+
+    #coverText{
+        height: 410px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #coverText svg{
+        display: inline-block;
+        position: relative;
+        height: 13em;
+        margin-left: 2em;
+    }
+}
+
+@media screen and (max-width: 699px){
+    #coverText svg{
+        display: none;
+    }
+}
+
+/* @media screen and (max-width: 620px){
+} */
+
+@media screen and (max-width: 575px){
+    #navbarNav svg {
+        display: none;
+    }
+
+    .cover h1 {
+        font-size: var(--title-xsm-size);
+    }
+    
+    .cover p {
+        font-size: var(--text-xsm-size);
+    }
+
+    #cover{
+        height: 420px;
+    }
+
+    #coverText{
+        height: 360px;
+    }
+}
+
+@media screen and (max-width: 372px){
+    #title {
+        width: min-content;
+    }
+}
+
