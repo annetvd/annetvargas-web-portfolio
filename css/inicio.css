@@ -7,6 +7,12 @@
     --title-size: 47px;
     --title-xsm-size: 43px;
 
+    --h2-size: 42px;
+    --h2-xsm-size: 40px;
+
+    --p-size: 15px;
+    --p-sm-size: 13px;
+
     --text-size: 19px;
     --text-xsm-size: 17px;
 
@@ -18,25 +24,106 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+main p{
+    letter-spacing: -.007em;
+    line-height: 1.4;
+    font-size: var(--p-size);
+}
+
 nav ul > li {
     margin-inline: 1em;
 }
 
 nav {
-    /* cambiar a 4 cuando quite prueba */
     font-size: var(--text-nav-xxl-size);
-    z-index: 5;
+    z-index: 4;
     position: fixed;
     box-shadow: 0px 2px 10px rgba(0,0,0,.115);
     width: 100%;
     visibility: hidden;
 }
 
+h2 {
+    font-weight: bold;
+    font-size: var(--h2-size);
+    z-index: 1;
+}
+
 #navContainer {
     min-height: var(--nav-height);
 }
 
-.rowContainer {
+.blue {
+    fill: var(--blue);
+    /* color: #2339BC; */
+    background-color: var(--blue);
+}
+
+.green {
+    fill: var(--green);
+    /* color: #acdb04; */
+}
+
+.bg-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.background {
+    object-fit: cover;
+    object-position: top;
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.bg-content {
+    z-index: 1;
+}
+
+.icon {
+    height: 4.2em;
+    width: auto;
+    fill: var(--green);
+}
+
+.check-list div {
+    width: fit-content;
+    padding-bottom: 2.2em;
+}
+
+.check-list svg {
+    margin-block: auto;
+    height: 28px;
+    fill: var(--green);
+    padding-inline: 0;
+}
+
+.check-list p {
+    display: inline-block;
+    width: 220px;
+    margin: 0;
+}
+
+.translucent-box {
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.09);
+    max-width: 340px;
+}
+
+.shadow-css {
+    border-radius: 30px;
+    box-shadow: 1px 4px 50px -5px rgba(0, 0, 0,.1);
+    text-align: center;
+    height: 100%;
+}
+
+.shadow-css p {
+    text-align: start;
+}
+
+.row-container {
     display: flexbox;
     justify-content: center;
 }
@@ -105,18 +192,7 @@ nav {
 #blue {
     z-index: 0;
     padding: 0;
-    /* z-index: 4; */
 }
-
-#prueba {
-    /* z-index: 0; */
-    z-index: 4;
-    visibility: hidden;
-}
-
-/* #blue, #backG{
-    visibility: hidden;
-} */
 
 #devices{
     z-index: 2;
@@ -166,6 +242,12 @@ nav {
     }
 }
 
+@media screen and (max-width: 991px){
+    .check-list p {
+        width: 275px;
+    }
+}
+
 @media screen and (max-width: 887px){
     /* aquí si voy a dejar el font-size porque no lo pongo en js */
     .cover h1 {
@@ -174,6 +256,10 @@ nav {
     
     .cover p {
         font-size: var(--text-size);
+    }
+
+    #about h2 {
+        padding-top: 1em;
     }
 
     #devices, #backG {
@@ -214,16 +300,31 @@ nav {
     }
 }
 
+@media screen and (max-width: 767px){
+    .check-list p {
+        width: 220px;
+    }
+}
+
 @media screen and (max-width: 699px){
     #coverText svg{
         display: none;
     }
 }
 
-/* @media screen and (max-width: 620px){
-} */
-
 @media screen and (max-width: 575px){
+    nav ul > li {
+        margin-inline: 0em;
+    }
+
+    nav ul > li > a {
+        margin-block: .4em;
+    }
+
+    #navbarNav {
+        padding-block: .6em;
+    }
+
     #navbarNav svg {
         display: none;
     }
@@ -237,17 +338,25 @@ nav {
     }
 
     #cover{
-        height: 420px;
+        height: 440px;
     }
 
     #coverText{
-        height: 360px;
+        height: 380px;
+    }
+
+    .check-list p {
+        width: 305px;
     }
 }
 
 @media screen and (max-width: 372px){
     #title {
         width: min-content;
+    }
+
+    .check-list p {
+        width: 260px;
     }
 }
 
