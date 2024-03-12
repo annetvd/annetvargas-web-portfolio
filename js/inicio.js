@@ -10,10 +10,16 @@ const menu = document.querySelector("#menu");
 const nav = document.querySelector("nav");
 const coverArrow = document.querySelector("#coverText > svg");
 const navArrow = document.querySelector("#navbarNav > svg");
+const navbarNav =  document.querySelector("#navbarNav");
+const aboutB = document.querySelector("#aboutB");
+const webApp = document.querySelector("#webApp");
+const androidApp = document.querySelector("#androidApp");
 const svgH = 820;
 const svgX = -2;
 const h1FS = 47;
+const h1FSxs = 43;
 const pFS = 19;
+const pFSxs = 17;
 const viewBox = " 2 2200 820";
 const srcXxl = "../Imagenes/start/xxl/";
 const srcMd = "../Imagenes/start/md/";
@@ -58,6 +64,7 @@ function stickyMenu(width){
         else minTopNav = width * .0139; //19
     }
     
+    //place nav
     if (width >= 1286){
         if (scrollY >= minTopNav){
             nav.style.visibility = "visible";
@@ -66,19 +73,25 @@ function stickyMenu(width){
         }
     } else {
         nav.style.visibility = "visible";
-    }
-
-    if ((width < 888) && (width > 700)){
-        if (scrollY >= minTopNavMd){
+        //nav arrow
+        if ((width < 888) && (width > 700)) {
+            if (scrollY >= minTopNavMd) {
+                navArrow.style.visibility = "";
+                navArrow.style.position = "static";
+            } else {
+                navArrow.style.visibility = "hidden";
+                navArrow.style.position = "absolute";
+            }
+        } else {
             navArrow.style.visibility = "";
             navArrow.style.position = "static";
-        } else {
-            navArrow.style.visibility = "hidden";
-            navArrow.style.position = "absolute";
         }
-    } else{
-        navArrow.style.visibility = "";
-        navArrow.style.position = "static";
+        //nav padding
+        if (width < 576) {
+            navbarNav.classList.add("px-0");
+        } else {
+            navbarNav.classList.remove("px-0");
+        }
     }
 }
 
@@ -111,6 +124,11 @@ function resizeSetup(width){
         if (parseInt(width * .06) >= h1FS){
             h1.style.fontSize = parseInt(width * .06) + "px";
             p.style.fontSize = parseInt(width * .025) + "px";
+        } else {
+            if (width <= 575){
+                h1.style.fontSize = h1FSxs + "px";
+                p.style.fontSize = pFSxs + "px";
+            }
         }
         //arrow
         if (width >= 700) {
@@ -156,19 +174,22 @@ function calculateViewBox(height, width, div) {
 function responsiveCover(width){
     if(width >= 888){
         if(gridT != 0){
-            printGridT(width, srcXxl);
+            printGridT(srcXxl);
             gridT = 0;
         }
     } else{
         if(gridT != 1){
-            printGridT(width, srcMd);
+            printGridT(srcMd);
             gridT = 1;
         }
     }
     resizeSetup(width);
 }
 
-function printGridT(width, src){
+function printGridT(src){
     devices.src = src + "devices.png";
     blue.src = src + "blue.png";
+    aboutB.src = src + "about.png";
+    webApp.src = src + "webApp.png";
+    androidApp.src = src + "androidApp.png";
 }
