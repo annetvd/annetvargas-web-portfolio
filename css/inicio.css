@@ -2,13 +2,15 @@
     /* colors */
     --blue: #2339BC;
     --green: #acdb04;
-    --nav-height: 60px;
+    /* --nav-height: 60px; */
+    --nav-height: 50px;
     /* text size */
     --title-size: 47px;
     --title-xsm-size: 43px;
 
     --h2-size: 42px;
     --h2-xsm-size: 40px;
+    --h2-xxsm-size: 32px;
 
     --p-size: 15px;
     --p-sm-size: 13px;
@@ -106,6 +108,14 @@ h2 {
     margin: 0;
 }
 
+.second-list p {
+    width: 263px;
+}
+
+.second-list div {
+    padding-bottom: 2.8em;
+}
+
 .translucent-box {
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.09);
@@ -113,10 +123,23 @@ h2 {
 }
 
 .shadow-css {
-    border-radius: 30px;
-    box-shadow: 1px 4px 50px -5px rgba(0, 0, 0,.1);
+    border-radius: 23px;
+    box-shadow: 1px 4px 50px -5px rgba(0, 0, 0,.115);
     text-align: center;
     height: 100%;
+}
+
+.tech-stack {
+    width: 298px;
+}
+
+.androidApp {
+    width: 517px;
+    height: auto;
+}
+
+.container-xs {
+    max-width: 540px;
 }
 
 .shadow-css p {
@@ -228,6 +251,9 @@ h2 {
     }
 }
 
+/* @media screen and (max-width: 1400px){
+} */
+
 @media screen and (max-width: 1285px){
     #menu {
         display: none;
@@ -240,11 +266,39 @@ h2 {
     nav {
         visibility: visible;
     }
+
+    .container-xs {
+        max-width: auto;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .tech-stack {
+        width: 275px;
+    }
 }
 
 @media screen and (max-width: 991px){
     .check-list p {
         width: 275px;
+    }
+
+    .androidApp {
+        width: 360px;
+    }
+
+    .second-list p {
+        width: 208px;
+    }
+
+    .second-list div {
+        padding-bottom: 2.2em;
+    }
+
+    .tech-stack {
+        margin-inline: 1.35em;
+        width: 298px;
+        height: auto;
     }
 }
 
@@ -304,6 +358,23 @@ h2 {
     .check-list p {
         width: 220px;
     }
+
+    .androidApp {
+        /* width: 375px; */
+        width: 440px;
+    }
+
+    .container-xs {
+        min-width: 490px;
+    }
+
+    .second-list p {
+        width: 320px;
+    }
+
+    .tech-stack {
+        width: 225px;
+    }
 }
 
 @media screen and (max-width: 699px){
@@ -337,6 +408,14 @@ h2 {
         font-size: var(--text-xsm-size);
     }
 
+    h2 {
+        font-size: var(--h2-xsm-size);
+    }
+
+    main p {
+        font-size: var(--p-sm-size);
+    }
+
     #cover{
         height: 440px;
     }
@@ -345,18 +424,63 @@ h2 {
         height: 380px;
     }
 
+    .check-list div {
+        padding-bottom: 1.2em;
+    }
+
     .check-list p {
         width: 305px;
     }
+
+    .androidApp {
+        width: 330px;
+    }
+
+    .androidApp h2 {
+        font-size: 38px;
+    }
+
+    .second-list p {
+        width: 232px;
+    }
+
+    .container-xs {
+        max-width: 375px;
+        min-width: auto;
+    }
+
+    .tech-stack {
+        width: 330px;
+    }
 }
 
-@media screen and (max-width: 372px){
+@media screen and (max-width: 359px){
     #title {
         width: min-content;
+        margin-top: 1em;
     }
 
     .check-list p {
-        width: 260px;
+        /* width: 260px; */
+        width: 240px;
+    }
+
+    .androidApp {
+        width: 83.5%;
+        max-width: 305px;
+    }
+
+    .androidApp h2 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: var(--h2-xxsm-size);
+    }
+
+    .tech-stack {
+        width: 88%;
+        max-width: 305px;
     }
 }
 
