@@ -1,6 +1,5 @@
 const blue = document.querySelector("#blue");
 const backG = document.querySelector("#backG");
-// const coverText = document.querySelector("#coverText");
 const devices = document.querySelector("#devices");
 const h1 = document.querySelector("#title > h1");
 const p = document.querySelector("#title > p");
@@ -14,6 +13,11 @@ const navbarNav =  document.querySelector("#navbarNav");
 const aboutB = document.querySelector("#aboutB");
 const webApp = document.querySelector("#webApp");
 const androidApp = document.querySelector("#androidApp");
+const videoB = document.querySelector("#videoB");
+const video = document.querySelector("#video");
+const charts = document.querySelector("#charts");
+const form = document.querySelector("form");
+var volume;
 const svgH = 820;
 const svgX = -2;
 const h1FS = 47;
@@ -29,29 +33,121 @@ const heightPor = .503372 //(2015 * 100) / 4003 blue.png
 let gridT = -1;
 
 document.addEventListener("DOMContentLoaded", () => {
-    //necesito una clase css solo para el texto, variables css
     let width = window.innerWidth;
     responsiveCover(width);
     stickyMenu(width);
-
+    initializePlyr();
+    confPlyr();
 });
 
 window.addEventListener("resize", () => {
     let width = window.innerWidth;
     responsiveCover(width);
     stickyMenu(width);
+    confPlyr();
 });
 
 window.addEventListener("orientationchange", () => {
     let width = window.innerWidth;
     responsiveCover(width);
     stickyMenu(width);
+    confPlyr();
 });
 
 window.addEventListener("scroll", () => {
     let width = window.innerWidth;
     stickyMenu(width);
 });
+
+document.addEventListener('fullscreenchange', (event) => {
+    confPlyr();
+});
+
+// document.addEventListener("click", function(event) {
+//     // var x = event.clientX;
+//     console.log(getComputedStyle(videoB).display);
+// });
+
+function confPlyr(){
+    let width = parseInt(getComputedStyle(video).width);
+    if (width <= 795){
+        volume.style.display = "none";
+    } else{
+        volume.style.display = "flex";
+    }
+}
+
+function initializePlyr(){
+    const plyr = new Plyr(video, {
+        title: 'Project Introduction',
+        captions: {
+            active: true,
+        },
+        markers: {
+            enabled: true,
+            points: [
+                {
+                    time: 15,
+                    label: "Accounting user",
+                },
+                {
+                    time: 234,
+                    label: "Income reports",
+                },
+                {
+                    time: 380,
+                    label: "Statistician user",
+                },
+                {
+                    time: 393,
+                    label: "Certificates",
+                },
+                {
+                    time: 523,
+                    label: "Statistics reports",
+                },
+                {
+                    time: 632,
+                    label: "Auxiliary user",
+                },
+                {
+                    time: 662,
+                    label: "Packer user",
+                },
+                {
+                    time: 695,
+                    label: "Help",
+                },
+                {
+                    time: 716,
+                    label: "Administrator u",
+                },
+                {
+                    time: 747,
+                    label: "Reset password",
+                },
+                {
+                    time: 796,
+                    label: "Mobile App",
+                },
+                {
+                    time: 844,
+                    label: "App menus",
+                },
+                {
+                    time: 858,
+                    label: "Agenda",
+                },
+                {
+                    time: 898,
+                    label: "Statistics",
+                },
+            ],
+        }
+    });
+
+    volume = document.querySelector(".plyr__volume");
+}
 
 function stickyMenu(width){
     let scrollY = window.scrollY;
@@ -100,6 +196,7 @@ function resizeSetup(width){
     h1.style.marginBottom = parseInt(height * .09) + "px";
 
     if(width >= 888){
+        form.style.setProperty("--actual-width", width + "px");
         title.style.left = parseInt(width * .069) + "px";
         //fontSize
         if (parseInt(width * .036) >= h1FS){
@@ -149,7 +246,6 @@ function resizeSetup(width){
         menu.style.marginTop = parseInt(width * .028) + "px";
     } else {
         //nav
-
         if (width >= 992){
             mainSetup(height, .252, calculateViewBox(height, width, 6));
         } else{
@@ -187,9 +283,13 @@ function responsiveCover(width){
 }
 
 function printGridT(src){
+    // bloquear las demás imagenes con srcset y ver que tal
     devices.src = src + "devices.png";
     blue.src = src + "blue.png";
     aboutB.src = src + "about.png";
     webApp.src = src + "webApp.png";
     androidApp.src = src + "androidApp.png";
+    videoB.src = src + "videoB.png";
+    video.setAttribute("data-poster", src + "poster.png");
+    charts.src = src + "charts.png";
 }

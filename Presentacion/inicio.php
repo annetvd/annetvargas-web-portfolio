@@ -4,14 +4,26 @@
 <head>
     <title>Web portfolio</title>
     <meta name charset="utf-8" />
+    <meta name="description" property="og:description" content="Data analysis web platform - A tool that integrates administrative control and business intelligence." />
+    <meta name="author" content="Annet Vargas Dueñas" />
     <meta name="viewport" content="width=device-width" />
+
     <!-- content=""> -->
     <link rel="shorcut icon" href="..\Imagenes\av.ico">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Data analysis web platform" />
+    <meta property="og:site_name" content="annetvd" />
+    <meta property="og:url" content="https://annetvd.000webhostapp.com" />
+
+    <!-- Docs styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!------------- url -----------------------------------------------------------------------------------
+----------------------------------------------------------------------->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <link href="..\css\inicio.css" rel="stylesheet">
 </head>
 
@@ -52,6 +64,9 @@
             <use xlink:href="..\Imagenes\start\xxl\backG.svg#Layer_1" fill="url(#shadow)" />
         </svg>
         <div class="cover row justify-content-end" id="cover">
+            <!-- agregar srcset para todos menos blue porque son imagenes diferentes y no funciona con JavaScript srcset="..\Imagenes\start\md\blue.png 887w, ..\Imagenes\start\xxl\blue.png"-------------------------------------------------------------------------------
+            --------------------------------------------------------------------------------------------------
+            --------------------------------- -->
             <img id="blue" class="" src="" alt="" />
             <img id="devices" class="absolute" src="" alt="" />
             <span id="coverText" class="absolute">
@@ -72,7 +87,7 @@
     </header>
 
     <main>
-        <div style="height: 3500px;" class="container p-0">
+        <div style="height: 4500px;" class="container p-0">
             <div id="about" class="bg-container bg-white">
                 <img id="aboutB" class="background" src="" alt="" />
                 <span class="row p-0 mb-4 px-0 px-xxl-5">
@@ -165,7 +180,7 @@
 
             <div class="bg-container bg-whithe">
                 <img id="androidApp" class="background" src="" alt="" />
-                <div class="row py-3 py-sm-4 py-lg-5 px-0 my-5 justify-content-center">
+                <div class="row py-3 py-sm-4 py-lg-5 px-0 mt-5 mb-4 mb-sm-5 justify-content-center">
                     <span class="row p-0 m-0 pe-lg-5 col-auto ps-lg-2 ps-xl-0 justify-content-center pt-2 pt-md-0">
                         <div class="shadow-css androidApp bg-content bg-white col-auto px-0 px-sm-4 py-4 py-md-5 me-lg-3 ms-md-2 ms-lg-0">
                             <h2 class="text-start px-4 px-md-3 mt-1">Consultation Android application</h2>
@@ -196,7 +211,7 @@
                         <span class="col-auto p-0 ms-2 ms-xxl-1 me-xxl-3 d-none d-xl-inline"></span>
                     </span>
                     <span class="row p-0 m-0 justify-content-center py-2 py-md-0 px-2 px-sm-0">
-                        <h2 class="text-center my-3 my-sm-4 my-md-5">Tech stack</h2>
+                        <h2 class="text-center my-5 my-sm-4 my-md-5">Tech stack</h2>
                         <span class="row p-0 m-0 col-auto justify-content-center bg-content gap-md-1 gap-lg-4 gap-xl-5 mt-4 mt-md-0">
                             <div class="shadow-css tech-stack bg-white col-auto p-4 pt-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon mt-4 mb-2" alt="">
@@ -224,6 +239,73 @@
                     </span>
                 </div>
             </div>
+
+            <div class="bg-container">
+                <!-- rol? -->
+                <img id="videoB" class="background d-none d-sm-block" src="" alt="" />
+                <div class="video-backg m-0 mb-1 mx-0 mx-xxl-1 p-0 pt-1 pt-sm-1 pt-lg-0">
+                    <div class="row px-0 px-sm-4 pb-3 pt-0 pt-sm-4 pt-lg-5 mb-4 mt-sm-4 mx-0 justify-content-center">
+                        <div class="video mt-4 bg-content p-0">
+                            <video id="video" crossorigin controls preload="metadata" alt="Project Introduction: Web platform for administrative income control and statistics generation for an association. This video provides an overview of the platform, highlighting its main functionality and how it is used. The different users who can access the platform are detailed, as well as the available forms, the interaction between catalogs, movements, and report generation. Additionally, the project includes a mobile agenda application that includes data from suppliers and packers, as well as statistical visualization for managerial control.">
+                                <!-- cambiar a rutas actualizadas -------------------------------------------------
+                        -----------------------------------------------------------------------------------
+                        -------------------------------------------------------------------------------- -->
+                                <source src="..\Imagenes\start\video\video-1280.mp4" type="video/mp4" media="(max-width: 920px)">
+                                <source src="..\Imagenes\start\video\video-1920.mp4" type="video/mp4">
+                                <track src="subtitles.vtt" kind="subtitles" srclang="en" label="English" default>
+                            </video>
+                        </div>
+                        <span class="more bg-content">
+                            <h2 class="bg-content text-white">View more</h2>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-container bg-white">
+                <img id="charts" class="background" src="" alt="" />
+                <div class="row px-4 px-lg-0 py-4 my-1 my-sm-2 my-lg-4 justify-content-center">
+                    <button class="col-9 col-sm-5 shadow-css button try-button blue text-white bg-content">
+                        Try the web app <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="3 3 15 15" class="arrow-up">
+                            <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <button class="col-9 col-sm-5 shadow-css button bg-white bg-content mt-3 mt-sm-0">
+                        Review the proyect <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="3 3 15 15" class="arrow-up">
+                            <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="px-4 px-sm-5 pb-5 mb-3 mt-1 mt-lg-4 pt-3">
+                    <span class="row pb-4 mb-2 px-0 px-sm-3 bg-content justify-content-center justify-content-lg-start">
+                        <form class="col-12 row row-cols-1 px-4 py-4 mb-5 mt-4 shadow-css bg-content bg-white text-start form">
+                            <h2 class="text-center mt-1 mb-0">Contact me</h2>
+                            <span>
+                                <label class="form-label">Phone:</label>
+                                <input id="phone" class="form-control form-control-sm" type="tel" maxlength="10" minlength="10" NAME="phone" pattern="[0-9]+" />
+                            </span>
+                            <span>
+                                <label class="form-label">Name:</label>
+                                <input id="name" class="form-control form-control-sm" type="text" maxlength="50" NAME="name" required />
+                            </span>
+                            <span>
+                                <label class="form-label">Email:</label>
+                                <input id="email" class="form-control form-control-sm" type="text" maxlength="50" NAME="email" required pattern="[a-z0-9._%+-ñ]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+                            </span>
+                            <span>
+                                <label class="form-label">I'm a:</label>
+                                <input id="iAm" class="form-control form-control-sm" type="text" maxlength="80" NAME="iAm" required />
+                            </span>
+                            <span>
+                                <label class="form-label">Message:</label>
+                                <textarea id="message" class="form-control form-control-sm" maxlength="700" NAME="message" autocomplete="off" required></textarea>
+                            </span>
+                            <button class="col-8 button blue text-white mb-4">Send</button>
+                        </form>
+                    </span>
+                </div>
+            </div>
         </div>
 
     </main>
@@ -232,7 +314,8 @@
 
     </footer>
 
-    <script src="../js/inicio.js" defer></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script rel="preload" src="../js/inicio.js" defer></script>
     <!-- bootstrap -->
     <script src="../Librerias/bootstrap.min.js"></script>
 </body>

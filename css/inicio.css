@@ -1,9 +1,12 @@
 :root {
+    --max-width-container: 1600px;
+
     /* colors */
     --blue: #2339BC;
     --green: #acdb04;
-    /* --nav-height: 60px; */
+
     --nav-height: 50px;
+
     /* text size */
     --title-size: 47px;
     --title-xsm-size: 43px;
@@ -13,13 +16,32 @@
     --h2-xxsm-size: 32px;
 
     --p-size: 15px;
-    --p-sm-size: 13px;
+    --p-sm-size: 14px;
 
     --text-size: 19px;
     --text-xsm-size: 17px;
 
+    --form-size: 16.5px;
+    --form-sm-size: 15.5px;
+
     --text-nav-xxl-size: 20px;
     --text-nav-size: 16px;
+
+    --captios-xs: 10px;
+
+    /* form position */
+    --actual-width: 0px;
+    --buttons-width: 583px;
+    --form-subtraction: 179px;
+
+    /* plyr library */
+    --plyr-color-main: #acdb04;
+    --plyr-captions-background: white;
+    --plyr-captions-text-color: black;
+    --plyr-font-size-base: 80%;
+    --plyr-font-weight-regular: 550;
+    --plyr-font-weight-bold: 600;
+    --plyr-video-background: none;
 }
 
 body {
@@ -84,6 +106,69 @@ h2 {
     z-index: 1;
 }
 
+.video-backg {
+    background-color: var(--blue);
+}
+
+.video {
+    width: 64.5%;
+    height: auto;
+    box-shadow: 1px 4px 30px -5px rgba(0, 0, 0,.3);
+    margin: 0px;
+    padding: 0px;
+}
+
+.more {
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+    white-space: nowrap;
+    top: 57%;
+    left: 6%;
+    position: absolute;
+    width: fit-content;
+}
+
+.more h2 {
+    font-size: var(--p-size);
+    font-weight: 500;
+    width: 90px;
+}
+
+.form textarea, input[type="text"], input[type="tel"] {
+    height: 40px;
+    border-radius: 22px;
+    border: 1px solid rgb(100, 100, 100);
+    font-size: var(--form-size);
+    padding-inline: .9em;
+}
+
+.form textarea {
+    height: 160px;
+}
+
+.form span {
+    padding-inline: 1em;
+    padding-top: .8em;
+}
+
+.form {
+    margin-left: 336px;
+    max-width: 500px;
+}
+
+.form label {
+    padding-inline: .4em;
+    font-size: var(--form-size);
+}
+
+.form button {
+    height: 55px;
+    margin-inline: auto;
+    margin-top: 2.2em;
+    max-width: none;
+    font-size: var(--form-size);
+}
+
 .icon {
     height: 4.2em;
     width: auto;
@@ -129,6 +214,27 @@ h2 {
     height: 100%;
 }
 
+.button {
+    border-radius: 60px;
+    border: 2px solid var(--blue);
+    max-width: 270px;
+    margin-inline: 1.6em;
+    height: 60px;
+    color: var(--blue);
+    font-weight: 500;
+}
+
+.try-button {
+    background-image: url('../Imagenes/start/md/tryButton.png');
+    background-size: cover;
+    border: none;
+}
+
+.arrow-up {
+    height: 20px;
+    margin-left: .4em;
+}
+
 .tech-stack {
     width: 298px;
 }
@@ -153,7 +259,7 @@ h2 {
 
 .container{
     width: 100%;
-    max-width: 1600px;
+    max-width: var(--max-width-container);
 }
 
 #navbarNav {
@@ -245,14 +351,27 @@ h2 {
     width: fit-content;
 }
 
+@media screen and (max-width: 1600px){
+    .form {
+        margin-left: calc(((var(--actual-width) - var(--buttons-width)) / 2) - var(--form-subtraction));
+    }
+}
+
 @media screen and (max-width: 1500px){
     nav {
         font-size: var(--text-nav-size);
     }
 }
 
-/* @media screen and (max-width: 1400px){
-} */
+@media screen and (max-width: 1400px){   
+    .video {
+        width: 795px;
+    }
+
+    .more {
+        left: 75px;
+    }
+}
 
 @media screen and (max-width: 1285px){
     #menu {
@@ -275,6 +394,10 @@ h2 {
 @media screen and (max-width: 1200px){
     .tech-stack {
         width: 275px;
+    }
+
+    .more {
+        left: 6%;
     }
 }
 
@@ -299,6 +422,14 @@ h2 {
         margin-inline: 1.35em;
         width: 298px;
         height: auto;
+    }
+
+    .more {
+        visibility: hidden;
+    }
+
+    .form {
+        margin-inline: 0px;
     }
 }
 
@@ -381,6 +512,10 @@ h2 {
     #coverText svg{
         display: none;
     }
+
+    .button {
+        margin-inline: 1em;
+    }
 }
 
 @media screen and (max-width: 575px){
@@ -441,7 +576,7 @@ h2 {
     }
 
     .second-list p {
-        width: 232px;
+        width: 247px;
     }
 
     .container-xs {
@@ -451,6 +586,84 @@ h2 {
 
     .tech-stack {
         width: 330px;
+    }
+
+    .form textarea, input[type="text"], input[type="tel"] {
+        height: 35px;
+        padding-inline: .8em;
+    }
+    
+    .form textarea {
+        height: 160px;
+    }
+    
+    .form span {
+        padding-top: .7em;
+    }
+    
+    .form label, textarea, input[type="text"], input[type="tel"], button {
+        font-size: var(--form-sm-size);
+    }
+    
+    .form button {
+        height: 47px;
+    }
+
+    .form {
+        max-width: 86%;
+    }
+
+    .button {
+        height: 53px;
+    }
+
+    .video-backg {
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .form span {
+        padding-inline: .5em;
+    }
+
+    .form label, input[type="text"], input[type="tel"], button {
+        font-size: var(--p-sm-size);
+    }
+    
+    .form textarea {
+        font-size: var(--p-sm-size);
+    }
+}
+
+@media screen and (max-width: 420px){
+    .plyr__captions {
+        font-size: var(--captios-xs);
+    }
+
+    .button {
+        font-size: var(--p-sm-size);
+        /* height: 50px; */
+    }
+
+    .form span {
+        padding-inline: 0em;
+    }
+
+    .form input[type="text"], input[type="tel"] {
+        height: 32px;
+    }
+    
+    .form span {
+        padding-top: .5em;
+    }
+
+    .form label {
+        margin-bottom: .35em;
+    }
+
+    .form button {
+        height: 44px;
     }
 }
 
@@ -463,6 +676,10 @@ h2 {
     .check-list p {
         /* width: 260px; */
         width: 240px;
+    }
+
+    .second-list p {
+        width: 232px;
     }
 
     .androidApp {
@@ -482,5 +699,8 @@ h2 {
         width: 88%;
         max-width: 305px;
     }
-}
 
+    .form {
+        max-width: 93%;
+    }
+}
