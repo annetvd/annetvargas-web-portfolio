@@ -1,0 +1,674 @@
+WEBVTT
+
+STYLE
+::cue {
+    background: white;
+    color: black;
+    font-weight: 550;
+    font-size: 80%;
+}
+
+STYLE
+::cue(b) {
+    color: black;
+    font-weight: 600;
+}
+
+1
+00:01.433 --> 00:02.850
+Web platform APEAJAL
+
+2
+00:04.583 --> 00:08.733
+The platform has five different types of users:
+
+3
+00:08.850 --> 00:13.816
+accounting, statistics, auxiliary, packer, and administrator.
+
+4
+00:15.433 --> 00:18.850
+The accounting user has access to the catalog of banks,
+
+5
+00:18.900 --> 00:22.766
+bank accounts, fees, packers, regimes, and types of contribution.
+
+6
+00:23.300 --> 00:25.650
+However, the main catalog is that of packers,
+
+7
+00:26.366 --> 00:29.533
+as many processes of the platform depend on it.
+
+8
+00:29.833 --> 00:34.900
+Once a pack is registered, its user is automatically registered,
+
+9
+00:34.910 --> 00:39.533
+and an automated email is sent to activate it.
+
+10
+00:40.400 --> 00:43.350
+Additionally, when a pack is registered,
+
+11
+00:43.400 --> 00:49.566
+its balance is set to zero and updated as
+invoices and payments are registered.
+
+12
+00:50.550 --> 01:00.053
+From the packers catalog query, it's possible to search for a
+specific pack or classify it based on its location, among other things.
+
+13
+01:00.850 --> 01:05.950
+All catalogs, as well as all reports and all platform information,
+
+14
+01:06.000 --> 01:11.000
+can be downloaded as CSV files that can be opened in Excel,
+
+15
+01:11.050 --> 01:16.850
+allowing the information to continue to be
+processed by association employees.
+
+16
+01:17.150 --> 01:24.850
+Finally, the modification form of the packers'
+catalog allows updating their data,
+
+17
+01:24.900 --> 01:27.950
+except for the RFC and SADER registration.
+
+18
+01:28.000 --> 01:36.450
+The main purpose of the platform for the accounting user is
+to maintain internal control of the association's income.
+
+19
+01:36.500 --> 01:44.450
+To streamline the registration of an invoice in the platform, it is necessary
+to select the XML and PDF files already generated for the invoice.
+
+20
+01:44.500 --> 01:51.200
+This way, the platform automatically obtains the data, records it,
+
+21
+01:51.250 --> 01:57.000
+uploads the selected files to the server, and
+sends them to the corresponding packer.
+
+22
+01:57.050 --> 02:03.300
+In the query table, there are three buttons:
+the first two open the files uploaded to the server,
+
+23
+02:03.350 --> 02:07.850
+and the last button, on the right, indicates whether
+the automatic email was sent correctly.
+
+24
+02:07.950 --> 02:14.000
+A green color indicates it wasn't sent, while black indicates it was.
+Similarly, it is possible to resend it with this button.
+
+25
+02:14.250 --> 02:18.150
+Finally, the platform also records the cancellation of invoices.
+
+26
+02:18.200 --> 02:22.350
+First, the specific folio is searched,
+and then the justification is entered.
+
+27
+02:22.550 --> 02:28.000
+The platform automatically obtains the
+date and records the cancellation.
+
+28
+02:28.350 --> 02:33.200
+Invoices increase the balance of the packers, 
+while payments decrease it.
+
+29
+02:33.250 --> 02:41.150
+To register a payment, a packer is selected, 
+and the platform displays its pending invoices.
+
+30
+02:41.300 --> 02:48.100
+Then, the corresponding XML file to one
+of these pending invoices is selected,
+
+31
+02:48.105 --> 02:53.250
+and the platform automatically retrieves
+the data just like with the invoices.
+
+32
+02:53.850 --> 03:00.450
+The platform also selects the association's bank
+account where the packer deposits the money.
+
+33
+03:00.500 --> 03:08.150
+This way, it records the account already registered in
+the catalog of packers from which the payment was made
+
+34
+03:08.400 --> 03:11.150
+and the account it was deposited into.
+
+35
+03:12.000 --> 03:18.000
+Similar to the invoice query table, the payment table 
+allows for the review of files uploaded to the server
+
+36
+03:18.050 --> 03:22.150
+and the resending of automatic emails for each record.
+
+37
+03:23.150 --> 03:28.650
+Below is an example of the automated emails sent by the platform.
+
+38
+03:28.950 --> 03:35.350
+In these emails, you can see a message with
+the invoice folio in the case of invoices,
+
+39
+03:35.550 --> 03:43.700
+along with the corresponding month for the contribution
+and the PDF and XML files uploaded to the server.
+
+40
+03:45.050 --> 03:55.550
+On the other hand, for the payment emails, the PDD number and the
+uploaded files are also included. 
+
+41
+03:55.700 --> 04:06.350
+Below are the income reports. The first one is the general income report,
+which gathers all invoices and payments within a specified period.
+
+42
+04:06.550 --> 04:11.400
+Invoices represent charges, and payments represent credits.
+
+43
+04:11.450 --> 04:17.000
+Consequently, a detailed report of the total
+charges and credits is obtained.
+
+44
+04:17.050 --> 04:25.000
+This report can be generated for each individual
+packer or overall for all of them.
+
+45
+04:25.450 --> 04:37.250
+Additionally, it can be exported to a PDF file with the information displayed
+in the query table and automatically sent to the selected packer.
+
+46
+04:37.550 --> 04:44.000
+On the other hand, the income summary report uses
+the same algorithm as the previous report
+
+47
+04:44.050 --> 04:50.700
+but queries monthly and only displays the totals for each packer.
+
+48
+04:50.800 --> 05:02.850
+It's also possible to query by types of contributions or for all
+registered invoices and payments, generating a PDF report.
+
+49
+05:03.150 --> 05:12.450
+Finally, there's the account statement report, which compiles
+all invoice records per packer or all packers,
+
+50
+05:12.500 --> 05:15.800
+each representing a monthly contribution.
+
+51
+05:15.950 --> 05:24.750
+These reports compare exported kilograms, contributions automatically
+calculated by the platform, and invoice amounts.
+
+52
+05:25.200 --> 05:34.850
+It's possible to generate the report in PDF
+format and automatically send it via email.
+
+53
+05:35.100 --> 05:41.550
+The automatic email includes personalized report
+data based on the selected parameters.
+
+54
+05:41.950 --> 05:52.250
+To conclude, the contributions report conducts a monthly query of
+exported kilograms per packer and calculates the monthly contributions
+
+55
+05:52.300 --> 05:58.450
+by multiplying these kilograms by the registered fee for
+that month, which in some cases may be more than one.
+
+56
+05:58.750 --> 06:04.450
+Finally, the invoice number corresponding to each contribution is displayed,
+
+57
+06:04.500 --> 06:08.150
+in the case of those that have already been invoiced, so
+that the user can identify those that are still pending.
+
+58
+06:08.750 --> 06:20.150
+This query can be filtered by packers that do invoice to
+identify outstanding contributions or by all packers.
+
+59
+06:20.950 --> 06:28.100
+On the other hand, the statistician user has access to
+the catalogs of fees, packers, states, municipalities,
+
+60
+06:28.150 --> 06:34.450
+officials, countries, entry ports, third parties,
+third-party specialists, and transports.
+
+61
+06:34.550 --> 06:40.450
+These catalogs are necessary to validate registration
+and certificate replacement forms.
+
+62
+06:40.550 --> 06:51.150
+They also validate that the selected date is within the corresponding
+season, which begins in June and ends in May of the following year.
+
+63
+06:52.200 --> 07:00.500
+The main objective of these and many more validations is to ensure
+that there are no errors in the registration of certificates,
+
+64
+07:00.600 --> 07:05.450
+as these are the main source of information for the platform.
+
+65
+07:05.550 --> 07:10.150
+They are used to calculate monthly contributions
+and generate all statistics.
+
+66
+07:10.750 --> 07:16.250
+Now, the current form is the certificate cancellation
+form. To cancel a certificate,
+
+67
+07:16.300 --> 07:22.300
+first, a search is made based on its CFI
+folio, and a justification is recorded.
+
+68
+07:22.850 --> 07:30.500
+On the other hand, certificate replacement works similarly.
+A search is conducted, the data is obtained,
+
+69
+07:30.850 --> 07:38.400
+and the platform allows registering a new one based on this information
+without having to fill out the complete form again.
+
+70
+07:38.950 --> 07:44.650
+This way, only the fields with errors or differences are modified,
+
+71
+07:44.950 --> 07:50.100
+and the justification for canceling the
+certificate to be replaced is recorded.
+
+72
+07:50.250 --> 07:57.300
+A certificate that is canceled is no longer valid
+and is not considered by the association,
+
+73
+07:57.550 --> 08:02.850
+however, a certificate with an original
+status or replacement status is.
+
+74
+08:03.350 --> 08:06.850
+Now, the query is displayed here. With this,
+
+75
+08:06.900 --> 08:12.900
+it's possible to filter the data by status, time
+period, type of export, among other things.
+
+76
+08:12.950 --> 08:18.650
+Like the catalogs, it can be exported in CSV files.
+
+77
+08:18.950 --> 08:26.250
+To achieve this result, a Bootstrap library
+was implemented to use a dynamic table.
+
+78
+08:26.350 --> 08:33.700
+This table indicates how many records are being displayed and
+how many records there are in total, among other things.
+
+79
+08:34.250 --> 08:43.250
+For this user, it's also possible to access the contribution report,
+but as we've seen before, I won't explain here what we're seeing.
+
+80
+08:43.900 --> 08:52.950
+This is the report of historical statistics, which presents
+two types of charts: a bar chart and a line chart.
+
+81
+08:53.000 --> 09:03.900
+It's possible to consult any year within the historical data of the
+association and download an automatic report in PDF format.
+
+82
+09:03.950 -->  09:13.350
+This report displays statistics in the form of charts and
+the data for each month and year in a table format.
+
+83
+09:14.350 --> 09:23.950
+Additionally, there are monthly statistics that
+show the overall exports by destination.
+
+84
+09:24.350 --> 09:31.600
+These are presented in bar charts and pie charts. Furthermore,
+the vessels registered in that month are also displayed.
+
+85
+09:32.700 --> 09:38.450
+In this case, what we are currently viewing on
+the screen are the statistics by packer,
+
+86
+09:38.550 --> 09:41.800
+which are exactly the same as the previous statistics,
+
+87
+09:41.850 --> 09:46.850
+with the only difference being that here the
+data of a specific packer are displayed.
+
+88
+09:47.250 --> 09:55.550
+Similarly to the previous example, the PDF report presents
+tables with the data for each destination.
+
+89
+09:56.050 --> 10:01.325
+Lastly, there are the statistics by season, which compare two seasons.
+
+90
+10:01.450 --> 10:08.850
+These are presented in individual charts, one for
+each season, and include two comparative charts:
+
+91
+10:09.000 --> 10:15.630
+one bar chart and one line chart. Any season can be
+chosen, but the default is to load the last two.
+
+92
+10:16.080 --> 10:28.200
+In the PDF report, in addition to the exports for each month, the
+exports for each month by destination for each season are shown.
+
+93
+10:28.450 --> 10:31.290
+This concludes the functionality for the statistics user.
+
+94
+10:32.250 --> 10:42.300
+On this screen, the menu for the auxiliary statistician user is presented.
+It contains some of the catalogs available to the statistician user type,
+
+95
+10:42.650 --> 10:50.150
+as well as access to certificates, whether for
+registration, cancellation, or replacement.
+
+96
+10:50.200 --> 11:01.900
+However, the auxiliary statistician user type only supports certificate
+capture and doesn’t have access to contributions or statistical inquiries.
+
+97
+11:02.950 --> 11:10.950
+The user of type packer doesn’t have administrative permissions
+but can consult the association's statistics.
+
+98
+11:11.000 --> 11:26.020
+The difference lies in the monthly statistics per packer.
+The packer user can’t choose which packer to consult,
+
+99
+11:26.100 --> 11:35.110
+as this data is confidential among the packers. Therefore,
+the user can only view their own statistics.
+
+100
+11:35.350 --> 11:43.500
+Additionally, the system help is displayed, accessible
+to all users and personalized for each one.
+
+101
+11:43.900 --> 11:50.880
+Clicking on any of the accordions brings up a screen with each step,
+
+102
+11:51.000 --> 11:55.905
+warnings, and recommendations for the corresponding form.
+
+103
+11:56.300 --> 12:08.480
+Finally, there is the user of type administrator, who has access to all
+areas of the system and can register users who will be using it.
+
+104
+12:08.820 --> 12:14.950
+This screen displays the user registration form, which,
+like the packers' catalog registration form,
+
+105
+12:15.000 --> 12:22.180
+sends an automated email to activate the account. The administrator
+user also has some controls to manage the system,
+
+106
+12:22.250 --> 12:26.470
+such as error logging, backup, and database restoration.
+
+107
+12:27.970 --> 12:37.750
+Now, I'm showing the process to reset a user's password.
+First, the user's email address is entered,
+
+108
+12:37.880 --> 12:47.470
+and then the platform sends an automated
+email containing the activation link.
+
+109
+12:47.600 --> 13:00.050
+This link includes two pieces of information: the user's ID and a token,
+which is an activation code that validates the password change.
+
+110
+13:00.380 --> 13:08.660
+This screen displays the form responsible
+for verifying if the link is valid.
+
+111
+13:08.900 --> 13:16.560
+In this case, an expired link is shown, which is
+no longer valid for changing the password.
+
+112
+13:17.760 --> 13:19.650
+Mobile App APEAJAL
+
+113
+13:20.560 --> 13:29.550
+The users who have access to this application are: the administrator
+user, who can access the statistics and the agenda;
+
+114
+13:29.580 --> 13:36.916
+the accounting user who can access the agenda, and
+the executive user who can view the statistics.
+
+115
+13:37.650 --> 13:40.933
+This is the main screen of the mobile application.
+
+116
+13:41.500 --> 13:48.050
+Here, the login process takes place, and it verifies that
+the user has the necessary permissions to access.
+
+117
+13:48.533 --> 13:53.966
+It's important to note that users of types statistician,
+assistant, and packer do not have access.
+
+118
+13:54.883 --> 14:03.766
+All this process is carried out on the server, and the queries are
+constantly updated once the user logs into the application.
+
+119
+14:04.466 --> 14:10.606
+Here I'm showing the main menu, the agenda menu, and the statistics menu.
+
+120
+14:10.866 --> 14:17.966
+The administrator has access to all functions available in the
+application, and the home button redirects to the main menu.
+
+121
+14:18.433 --> 14:25.650
+Regarding user permissions, the accounting
+user has access to the agenda menu.
+
+122
+14:25.830 --> 14:29.846
+This menu includes all packers and displays
+
+123
+14:29.900 --> 14:37.700
+the data registered in the packers catalog in the
+web application, which is consulted in real-time.
+
+124
+14:37.883 --> 14:45.106
+Additionally, it shows the balances, which are updated
+each time invoices and payments are registered.
+
+125
+14:45.370 --> 14:49.845
+The catalog of suppliers registered in the database is also included.
+
+126
+14:50.300 --> 14:57.000
+It's important to mention that this catalog doesn’t belong to my project,
+but it has been included to meet the needs of the accounting user.
+
+127
+14:58.516 --> 15:07.883
+Also, there's the executive user, who has access to the statistics.
+These include general statistics and statistics per packer.
+
+128
+15:08.400 --> 15:17.733
+The general statistics display historical data using
+the same algorithm as presented in the web platform.
+
+129
+15:18.466 --> 15:28.716
+Additionally, here I'm showing how, when rotating the
+phone horizontally, the query parameters are retained.
+
+130
+15:29.266 --> 15:36.683
+It's important to remember that in Android, activities
+are restarted each time the orientation changes.
+
+131
+15:36.883 --> 15:46.563
+Now, the monthly statistics are presented, obtained
+in the same way as those on the web platform.
+
+132
+15:46.750 --> 15:49.883
+These statistics display exports by destination.
+
+133
+15:50.450 --> 15:58.566
+When rotating the phone horizontally, the menu at
+the top is hidden to view the graphs comfortably.
+
+134
+15:58.766 --> 16:09.076
+The library used to generate them allows interactive zooming.
+Additionally, in horizontal mode, queries can also be performed.
+
+135
+16:09.833 --> 16:17.950
+Now, the statistics per packer use exactly the
+same algorithm as the previous statistics,
+
+136
+16:18.516 --> 16:25.450
+with the only difference being that here you can select a specific packer.
+
+137
+16:25.500 --> 16:35.500
+In fact, historical statistics per packer are exclusive to the mobile
+application, as they are not available on the web platform.
+
+138
+16:35.600 --> 16:40.633
+Finally, there are monthly statistics per packer,
+which are available on the web platform.
+
+139
+16:40.683 --> 16:44.550
+To close the application, simply click on the exit button.
+
+140
+16:44.583 --> 16:49.200
+It also closes automatically when it goes into the background.
