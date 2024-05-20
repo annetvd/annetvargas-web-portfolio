@@ -10,12 +10,7 @@ const nav = document.querySelector("nav");
 const coverArrow = document.querySelector("#coverText > svg");
 const navArrow = document.querySelector("#navbarNav > svg");
 const navbarNav =  document.querySelector("#navbarNav");
-const aboutB = document.querySelector("#aboutB");
-const webApp = document.querySelector("#webApp");
-const androidApp = document.querySelector("#androidApp");
-const videoB = document.querySelector("#videoB");
 const video = document.querySelector("#video");
-const charts = document.querySelector("#charts");
 const form = document.querySelector("form");
 var volume;
 const svgH = 820;
@@ -286,10 +281,5 @@ function printGridT(src){
     // bloquear las demás imagenes con srcset y ver que tal
     devices.src = src + "devices.png";
     blue.src = src + "blue.png";
-    aboutB.src = src + "about.png";
-    webApp.src = src + "webApp.png";
-    androidApp.src = src + "androidApp.png";
-    videoB.src = src + "videoB.png";
     video.setAttribute("data-poster", src + "poster.png");
-    charts.src = src + "charts.png";
 }

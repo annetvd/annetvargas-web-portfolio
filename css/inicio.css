@@ -48,7 +48,17 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-main p{
+body a {
+    text-decoration: none;
+}
+
+main p, li > span {
+    letter-spacing: -.007em;
+    line-height: 1.4;
+    font-size: var(--p-size);
+}
+
+footer p, a {
     letter-spacing: -.007em;
     line-height: 1.4;
     font-size: var(--p-size);
@@ -104,6 +114,30 @@ h2 {
 
 .bg-content {
     z-index: 1;
+}
+
+.footer-content svg {
+    height: 23px;
+    fill: white;
+    margin-bottom: .05em;
+}
+
+.footer-content p {
+    display: inline;
+    color: white;
+}
+
+.footer-content a {
+    color: white;
+}
+
+.footer-content span {
+    white-space: nowrap;
+}
+
+.footer-title {
+    font-size: var(--h2-xsm-size);
+    font-weight: 620;
 }
 
 .video-backg {
@@ -175,7 +209,7 @@ h2 {
     fill: var(--green);
 }
 
-.check-list div {
+.check-list li {
     width: fit-content;
     padding-bottom: 2.2em;
 }
@@ -187,17 +221,17 @@ h2 {
     padding-inline: 0;
 }
 
-.check-list p {
-    display: inline-block;
+.check-list li > span {
     width: 220px;
     margin: 0;
+    display: block;
 }
 
-.second-list p {
+.second-list li > span {
     width: 263px;
 }
 
-.second-list div {
+.second-list li {
     padding-bottom: 2.8em;
 }
 
@@ -222,6 +256,11 @@ h2 {
     height: 60px;
     color: var(--blue);
     font-weight: 500;
+    font-size: calc(var(--p-size) + 1.5px);
+}
+
+.button span {
+    margin-block: auto;
 }
 
 .try-button {
@@ -402,7 +441,7 @@ h2 {
 }
 
 @media screen and (max-width: 991px){
-    .check-list p {
+    .check-list li > span {
         width: 275px;
     }
 
@@ -410,11 +449,11 @@ h2 {
         width: 360px;
     }
 
-    .second-list p {
+    .second-list li > span {
         width: 208px;
     }
 
-    .second-list div {
+    .second-list li {
         padding-bottom: 2.2em;
     }
 
@@ -486,7 +525,7 @@ h2 {
 }
 
 @media screen and (max-width: 767px){
-    .check-list p {
+    .check-list li > span {
         width: 220px;
     }
 
@@ -499,7 +538,7 @@ h2 {
         min-width: 490px;
     }
 
-    .second-list p {
+    .second-list li > span {
         width: 320px;
     }
 
@@ -547,7 +586,15 @@ h2 {
         font-size: var(--h2-xsm-size);
     }
 
-    main p {
+    .footer-title {
+        font-size: var(--h2-xxsm-size);
+    }
+
+    main p, li > span {
+        font-size: var(--p-sm-size);
+    }
+
+    footer p, a {
         font-size: var(--p-sm-size);
     }
 
@@ -559,11 +606,11 @@ h2 {
         height: 380px;
     }
 
-    .check-list div {
+    .check-list li {
         padding-bottom: 1.2em;
     }
 
-    .check-list p {
+    .check-list li > span {
         width: 305px;
     }
 
@@ -575,7 +622,7 @@ h2 {
         font-size: 38px;
     }
 
-    .second-list p {
+    .second-list li > span {
         width: 247px;
     }
 
@@ -642,7 +689,7 @@ h2 {
     }
 
     .button {
-        font-size: var(--p-sm-size);
+        font-size: calc(var(--p-sm-size) + 1.5px);
         /* height: 50px; */
     }
 
@@ -673,12 +720,12 @@ h2 {
         margin-top: 1em;
     }
 
-    .check-list p {
+    .check-list li > span {
         /* width: 260px; */
         width: 240px;
     }
 
-    .second-list p {
+    .second-list li > span {
         width: 232px;
     }
 
