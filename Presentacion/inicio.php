@@ -13,7 +13,9 @@ $src_video = "../Imagenes/start/video/";
     <meta name="author" content="Annet Vargas Dueñas" />
     <meta name="viewport" content="width=device-width" />
 
-    <!-- content=""> -->
+    <!-- icon -->
+    <!------------- url -----------------------------------------------------------------------------------
+----------------------------------------------------------------------->
     <link rel="shorcut icon" href="..\Imagenes\av.ico">
 
     <!-- Open Graph -->
@@ -26,9 +28,9 @@ $src_video = "../Imagenes/start/video/";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <!------------- url -----------------------------------------------------------------------------------
 ----------------------------------------------------------------------->
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <link href="..\css\inicio.css" rel="stylesheet">
 </head>
 
@@ -66,7 +68,11 @@ $src_video = "../Imagenes/start/video/";
             <use xlink:href="..\Imagenes\start\xxl\backG.svg#Layer_1" fill="url(#shadow)" />
         </svg>
         <div class="cover row justify-content-end" id="cover">
-            <img id="blue" class="" src="" alt="" aria-hidden="true" />
+        <!-- I resorted to this practice because I used a lot of CSS and JS code to program the cover design 
+        before learning better techniques. I solved this problem according to my abilities on the 
+        instructions page. -->
+            <img class="cover-space" src="<?php echo $src_xxl; ?>height.png" alt="" aria-hidden="true" /> <!--* -->
+            <img id="blue" class="absolute" src="" alt="" aria-hidden="true" />
             <img id="devices" class="absolute" src="" alt="" aria-hidden="true" />
             <span id="coverText" class="absolute">
                 <div id="menu" aria-hidden="true">
@@ -128,7 +134,7 @@ $src_video = "../Imagenes/start/video/";
                         </div>
                     </div>
                     <span class="w-100 d-inline d-lg-none"></span>
-                    <ul class="col-auto m-0 p-0 row justify-content-center">
+                    <ul class="col-auto m-0 p-0 pb-2 pb-lg-0 row justify-content-center">
                         <span class="col-auto check-list ps-sm-3 ps-xl-2 bg-content ms-2 ms-sm-3 ms-lg-5 me-sm-3 me-md-4 me-lg-2 me-xl-4">
                             <li class="row row-cols-auto mt-lg-2">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 106 100" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
@@ -211,9 +217,9 @@ $src_video = "../Imagenes/start/video/";
                         </ul>
                         <span class="col-auto p-0 ms-2 ms-xxl-1 me-xxl-3 d-none d-xl-inline"></span>
                     </span>
-                    <span class="row p-0 m-0 justify-content-center py-2 py-md-0 px-2 px-sm-0">
-                        <h2 class="text-center my-5 my-sm-4 my-md-5">Tech stack</h2>
-                        <span class="row p-0 m-0 col-auto justify-content-center bg-content gap-md-1 gap-lg-4 gap-xl-5 mt-4 mt-md-0">
+                    <span class="row p-0 m-0 justify-content-center py-2 pt-0 pb-md-0 px-2 px-sm-0">
+                        <h2 class="text-center my-5 mt-4 mt-md-5 pt-3 pt-md-0 pb-2 pb-md-0">Tech stack</h2>
+                        <span class="row p-0 m-0 col-auto justify-content-center bg-content gap-md-1 gap-lg-4 gap-xl-5">
                             <div class="shadow-css tech-stack bg-white col-auto p-4 pt-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon mt-4 mb-2" alt="server-side">
                                     <path d="M4.08 5.227A3 3 0 0 1 6.979 3H17.02a3 3 0 0 1 2.9 2.227l2.113 7.926A5.228 5.228 0 0 0 18.75 12H5.25a5.228 5.228 0 0 0-3.284 1.153L4.08 5.227Z" />
@@ -268,7 +274,7 @@ $src_video = "../Imagenes/start/video/";
                             </svg>
                         </span>
                     </a>
-                    <a href="" class="col-9 col-sm-5 px-0 row shadow-css button bg-white bg-content mt-3 mt-sm-0" role="button" aria-label="Review the project">
+                    <a href="read-more.pdf" target="_blank" class="col-9 col-sm-5 px-0 row shadow-css button bg-white bg-content mt-3 mt-sm-0" role="button" aria-label="Review the project">
                         <span>Review the proyect <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="3 3 15 15" class="arrow-up" alt="" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z" clip-rule="evenodd" />
                             </svg>
@@ -294,7 +300,7 @@ $src_video = "../Imagenes/start/video/";
                             </span>
                             <span>
                                 <label class="form-label" for="iAm">I'm a:</label>
-                                <input id="iAm" class="form-control form-control-sm" type="text" maxlength="80" NAME="iAm" required aria-label="I am a" />
+                                <input id="iAm" class="form-control form-control-sm" type="text" maxlength="80" NAME="iAm" aria-label="I am a" title="Indicate your position or provide a brief description about yourself in a single sentence." aria-label="Indicate your position or provide a brief description about yourself in a single sentence." />
                             </span>
                             <span>
                                 <label class="form-label" for="message">Message:</label>
@@ -312,7 +318,7 @@ $src_video = "../Imagenes/start/video/";
         <img id="footer" class="background" src="<?php echo $src_xxl; ?>footer.png" srcset="<?php echo $src_md; ?>footer.png 887w, <?php echo $src_xxl; ?>footer.png" alt="" aria-hidden="true" />
         <span class="d-block container p-0 px-sm-2 px-md-0 px-xxl-5">
             <span class="row px-4 px-md-5 py-5">
-                <p class="footer-title text-white bg-content my-0 py-0 px-2 px-sm-3 mx-3 pb-1 mb-sm-0 pe-5">Annet Vargas Dueñas</p>
+                <p class="footer-title text-white bg-content my-0 py-0 px-2 px-sm-3 mx-3 pb-2 pb-sm-1 mb-sm-0 pe-5">Annet Vargas Dueñas</p>
                 <div class="bg-content footer-content pb-2 px-3 mx-2">
                     <span class="ms-0 ps-1 me-5 me-sm-3 me-xxl-4 pe-3">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" alt="phone">

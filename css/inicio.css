@@ -116,6 +116,10 @@ h2 {
     z-index: 1;
 }
 
+.cover-space {
+    width: 100%;
+}
+
 .footer-content svg {
     height: 23px;
     fill: white;
@@ -473,7 +477,11 @@ h2 {
 }
 
 @media screen and (max-width: 887px){
-    /* aquí si voy a dejar el font-size porque no lo pongo en js */
+    .cover-space {
+        display: none;
+    }
+
+    /* Here, I am going to leave the font-size as is because I don't set it in JavaScript. */
     .cover h1 {
         font-size: var(--title-size);
     }
@@ -540,6 +548,10 @@ h2 {
 
     .second-list li > span {
         width: 320px;
+    }
+
+    .second-list li {
+        padding-bottom: 1.6em;
     }
 
     .tech-stack {
