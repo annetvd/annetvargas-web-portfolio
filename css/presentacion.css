@@ -26,6 +26,21 @@ body a {
     text-decoration: none;
 }
 
+a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
 main p, li > span {
     letter-spacing: -.007em;
     line-height: 1.4;
@@ -68,6 +83,19 @@ h2 {
 
 .green {
     fill: var(--green);
+}
+
+.cover h1 {
+    font-size: 49px;
+    font-weight: bold;
+    letter-spacing: .01em;
+}
+
+.cover p {
+    font-size: 21px;
+    letter-spacing: .01em;
+    font-weight: 500;
+    line-height: 1.35;
 }
 
 .bg-container {
@@ -178,6 +206,10 @@ h2 {
     padding: 0px;
 }
 
+.cover-space {
+    width: 100%;
+}
+
 @media screen and (max-width: 1500px){
     nav {
         font-size: var(--text-nav-size);
@@ -187,6 +219,16 @@ h2 {
 @media screen and (max-width: 1285px){
     nav {
         visibility: visible;
+    }
+}
+
+@media screen and (max-width: 887px){
+    .cover h1 {
+        font-size: var(--title-size);
+    }
+    
+    .cover p {
+        font-size: var(--text-size);
     }
 }
 
@@ -211,6 +253,14 @@ h2 {
         font-size: var(--h2-xsm-size);
     }
 
+    .cover h1 {
+        font-size: var(--title-xsm-size);
+    }
+    
+    .cover p {
+        font-size: var(--text-xsm-size);
+    }
+
     .footer-title {
         font-size: var(--h2-xxsm-size);
     }
@@ -231,7 +281,6 @@ h2 {
 @media screen and (max-width: 420px){
     .button {
         font-size: calc(var(--p-sm-size) + 1.5px);
-        /* height: 50px; */
     }
 }
 

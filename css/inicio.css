@@ -28,10 +28,6 @@
     --plyr-video-background: none;
 }
 
-.cover-space {
-    width: 100%;
-}
-
 .video-backg {
     background-color: var(--blue);
 }
@@ -143,19 +139,6 @@
 
 .container-xs {
     max-width: 540px;
-}
-
-.cover h1 {
-    font-size: 49px;
-    font-weight: bold;
-    letter-spacing: .01em;
-}
-
-.cover p {
-    font-size: 21px;
-    letter-spacing: .01em;
-    font-weight: 500;
-    line-height: 1.35;
 }
 
 .cover {
@@ -292,16 +275,7 @@
     .cover-space {
         display: none;
     }
-
-    /* Here, I am going to leave the font-size as is because I don't set it in JavaScript. */
-    .cover h1 {
-        font-size: var(--title-size);
-    }
     
-    .cover p {
-        font-size: var(--text-size);
-    }
-
     #about h2 {
         padding-top: 1em;
     }
@@ -382,14 +356,6 @@
 }
 
 @media screen and (max-width: 575px){
-    .cover h1 {
-        font-size: var(--title-xsm-size);
-    }
-    
-    .cover p {
-        font-size: var(--text-xsm-size);
-    }
-
     #cover{
         height: 440px;
     }
