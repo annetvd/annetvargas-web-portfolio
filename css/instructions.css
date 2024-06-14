@@ -1,0 +1,594 @@
+@import url("presentacion.css");
+
+:root {
+    --h1-color: #22409D;
+    --blue-btn: #2339BB;
+    --dark-blue: #1b2598;
+    --width: 1300px;
+
+    --h1-size: 36.9px;
+    --h1-sm-size: 32.9px;
+
+    --description-size: 18.4px;
+    --description-sm-size: 16.4px;
+
+    --min-width-calculation-cover : 937px;
+    --min-height-md: 470px;
+    --min-height-sm: 380px;
+}
+
+nav {
+    visibility: visible;
+}
+
+.cover {
+    min-height: var(--min-height-md);
+}
+
+.cover h1 {
+    color: var(--h1-color);
+    margin-bottom: 7.7%;
+    font-size: calc(var(--width) * .0268);
+    line-height: 1.15em;
+}
+
+.cover p {
+    font-size: calc(var(--width) * .0135);
+    font-weight: 390;
+    color: black;
+    width: 88%;
+    line-height: 1.4em;
+}
+
+.cover div {
+    max-width: 25.5%;
+    top: 30%;
+    left: 12%;
+}
+
+.laptop {
+    width: 85%;
+    top: 10%;
+    float: right;
+    right: 6%;
+}
+
+.laptop-shadow {
+    z-index: 0;
+    top: 6%;
+    left: 45%;
+    width: 50%;
+}
+
+.users-list li, #reserve {
+    max-width: 300px;
+    background-color: var(--dark-blue);
+    height: 480px;
+    list-style: none;
+    border-radius: 27px;
+    color: white;
+    padding: 2.5em;
+    position: relative;
+    margin-inline: 2.5em;
+    margin-block: 2.2em;
+    box-shadow: 0px 0px 200px rgba(84, 97, 254, 0.05);
+}
+
+#reserve {
+    z-index: 2;
+}
+
+#reserve li > p {
+    margin-bottom: 3.5em !important;
+}
+
+#reserve li {
+    position: absolute;
+}
+
+.accordion-height {
+    height: auto !important;
+    min-height: 480px !important;
+}
+
+.users-list svg {
+    height: 90px;
+    fill: var(--green);
+    position: relative;
+    top: 25px;
+    width: 100%;
+}
+
+.users-list h2 {
+    font-size: calc(var(--p-size) + 4px);
+    text-align: center;
+}
+
+.users-list p {
+    padding: 0;
+    padding-inline: .1em;
+}
+
+.btn-users {
+    height: 35px;
+    color: white;
+    background-color: var(--blue-btn);
+    border: none;
+    max-width: 74%;
+    position: absolute;
+    bottom: 1.8em;
+    margin-inline: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.users-shadow {
+    box-shadow: inset 0px 10px 300px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    position: relative;
+}
+
+.text-width p {
+    max-width: 1140px;
+}
+
+.accordion-button, .accordion-header {
+    height: 20px;
+}
+
+.accordion-button {
+    padding: 0 !important;
+    padding-inline: .4em !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button:focus-visible {
+    outline: 4px solid var(--blue-btn);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-item {
+    position: relative;
+    bottom: 3em;
+    left: 0;
+}
+
+.accordion-item, .accordion-collapse, .accordion-body, .accordion-header, .accordion-button {
+    background-color: rgba(0, 0, 0, .0) !important;
+    border: none;
+}
+
+.accordion-body {
+    padding-top: .5em !important;
+    margin-bottom: .3em !important;
+}
+
+.reset-btn {
+    width: 120%;
+    border-radius: 60px;
+    height: 35px;
+    color: var(--dark-blue);
+    font-weight: 600;
+    font-size: calc(var(--p-size) + 1.2px);
+    border: none;
+    background-color: var(--green);
+    margin-inline: 0;
+}
+
+.accordion-button:not(.collapsed) {
+    box-shadow: none;
+}
+
+@media screen and (max-width: 1600px) {
+    .users-list li, #reserve {
+        margin-inline: 2.2em;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .users-list li, #reserve {
+        margin-inline: 1.8em;
+    }
+}
+
+@media screen and (max-width: 1365px) {
+    .cover div {
+        max-width: 350px;
+    }
+
+    .cover h1 {
+        font-size: var(--h1-size);
+    }
+
+    .cover p {
+        font-size: var(--description-size);
+    }
+}
+
+@media screen and (max-width: 1285px){
+    .laptop {
+        width: calc((max(var(--width), var(--min-width-calculation-cover)) - 350px)* 1.16);
+        top: calc(10% + ((1285px - max(var(--width), var(--min-width-calculation-cover)))* .158));
+        right: calc(6% - ((1285px - var(--width))* .07));
+    }
+    
+    .laptop-shadow {
+        top: calc(6% + ((1285px - max(var(--width), var(--min-width-calculation-cover)))* .158));
+        left: calc((45% + ((1285px - var(--width))* .158)) + ((1285px - var(--width))* .07));
+        width: calc((max(var(--width), var(--min-width-calculation-cover)) - 350px)* .68);
+    }
+
+    .users-list li, #reserve {
+        max-width: 480px;
+        height: auto;
+        min-height: 290px;
+        margin-inline: 2em;
+        margin-block: 1.8em;
+    }
+
+    #reserve {
+        margin-bottom: 2.3em;
+    }
+
+    #reserve li {
+        position: relative;
+    }
+
+    .accordion-height {
+        min-height: 290px !important;
+    }
+    
+    .users-list svg {
+        height: 70px;
+        top: 27%;
+        left: 8%;
+        width: 100px;
+        position: absolute;
+    }
+
+    .btn-users {
+        max-width: 83%;
+        bottom: 1.6em;
+    }
+
+    .users-list h2 {
+        width: 100%;
+        padding-left: 30%;
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+        text-align: start;
+    }
+
+    .users-list p {
+        padding-left: 30%;
+        margin-top: 0px !important;
+    }
+
+    .accordion-body {
+        margin-bottom: .1em !important;
+    }
+
+    .reset-btn {
+        margin-bottom: -.1em;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .users-list li, #reserve {
+        margin-inline: 1.5em;
+        margin-block: 1.3em;
+    }
+
+    #reserve {
+        margin-bottom: 1.5em;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .cover div {
+        left: calc(12% - ((991px - var(--width)) * .17));
+    }
+
+    .users-list li, #reserve {
+        max-width: 300px;
+        min-height: 445px;
+        padding: 2.2em;
+        margin-inline: 1.8em;
+        margin-block: 1.6em;
+    }
+
+    #reserve {
+        margin-bottom: 2.1em;
+    }
+
+    #reserve li {
+        position: absolute;
+    }
+
+    #reserve li > p {
+        margin-bottom: 3.9em !important;
+    }
+
+    .accordion-item {
+        bottom: 3.5em;
+    }
+
+    .accordion-height {
+        min-height: 445px !important;
+    }
+    
+    .users-list svg {
+        height: 90px;
+        position: relative;
+        top: 25px;
+        left: 0;
+        width: 100%;
+    }
+    
+    .users-list h2 {
+        text-align: center;
+        padding: 0;
+        margin-top: 2.5em !important;
+    }
+    
+    .users-list p {
+        padding: 0;
+        padding-inline: .5em;
+    }
+    
+    .btn-users {
+        max-width: 74%;
+        bottom: 1.8em;
+    }
+
+    .accordion-body {
+        margin-bottom: .3em !important;
+    }
+
+    .accordion-button {
+        padding-inline: .5em !important;
+    }
+
+    .reset-btn {
+        margin-bottom: -.2em;
+    }
+}
+
+@media screen and (max-width: 887px) {
+    .laptop-shadow {
+        display: none;
+    }
+
+    .cover div {
+        top: min(calc(30.7% + ((887px - var(--width)) * .14)), 37%);
+        left: 16%;
+        max-width: max(calc(var(--width) * .47), 310px);
+    }
+
+    .cover h1 {
+        font-size: max(calc(var(--width) * .050), var(--h1-sm-size));
+    }
+
+    .cover p {
+        font-size: max(calc(var(--width) * .024), var(--description-sm-size));
+    }
+
+    .users-list li, #reserve {
+        margin-inline: 1.6em;
+        margin-block: 1.4em;
+    }
+
+    #reserve {
+        margin-bottom: 1.9em;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .users-list li, #reserve {
+        max-width: 480px;
+        height: auto;
+        min-height: 280px;
+        margin-inline: 0;
+    }
+
+    #reserve {
+        margin-bottom: 2.4em;
+    }
+
+    #reserve li {
+        position: relative;
+    }
+
+    .accordion-item {
+        bottom: 3.3em;
+    }
+
+    .accordion-height {
+        min-height: 280px !important;
+    }
+    
+    .users-list svg {
+        height: 70px;
+        top: 27%;
+        left: 8%;
+        width: 100px;
+        position: absolute;
+    }
+
+    .btn-users {
+        max-width: 83%;
+        bottom: 1.6em;
+    }
+
+    .users-list h2 {
+        width: 100%;
+        padding-left: 30%;
+        margin-top: 0px !important;
+        padding-top: 0px !important;
+        text-align: start;
+    }
+
+    .users-list p {
+        padding-left: 30%;
+        margin-top: 0px !important;
+    }
+
+    .accordion-button {
+        padding-inline: .7em !important;
+    }
+
+    .reset-btn {
+        margin-bottom: -.3em;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .cover {
+        min-height: var(--min-height-sm);
+    }
+
+    .coverText {
+        height: calc(var(--min-height-sm) - var(--nav-height));
+        width: 100%;
+        top: var(--nav-height);
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .cover div {
+        position: static;
+        height: fit-content;
+        padding-left: 7px;
+        padding-top: 10px;
+        max-width: 317px;
+    }
+
+    .cover h1 {
+        font-size: var(--h1-sm-size);
+    }
+
+    .cover p {
+        font-size: var(--description-sm-size);
+    }
+
+    .users-list li, #reserve {
+        max-width: 300px;
+        min-height: 395px;
+        padding-bottom: 5.5em;
+    }
+
+    #reserve {
+        margin-bottom: 2.6em;
+    }
+
+    #reserve li > p {
+        margin-bottom: .6em !important;
+    }
+
+    .accordion-item {
+        bottom: .1em;
+    }
+
+    .accordion-height {
+        min-height: 395px !important;
+    }
+    
+    .users-list svg {
+        height: 80px;
+        position: relative;
+        top: 25px;
+        left: 0;
+        width: 100%;
+    }
+    
+    .users-list h2 {
+        text-align: center;
+        padding: 0;
+        margin-top: 2.5em !important;
+        font-size: calc(var(--h2-xsm-size)) + 4px;
+    }
+    
+    .users-list p {
+        padding: 0;
+        padding-inline: .1em;
+    }
+    
+    .btn-users {
+        max-width: 76%;
+        bottom: 1.8em;
+    }
+
+    .accordion-button {
+        padding-inline: .4em !important;
+    }
+
+    .reset-btn {
+        margin-bottom: -.1em;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .cover div {
+        top: 32.2%;
+    }
+
+    .reset-btn {
+        font-size: calc(var(--p-sm-size) + 1.5px);
+        margin-bottom: -.2em;
+    }
+}
+
+@media screen and (max-width: 359px){
+    .cover div {
+        max-width: 82.5%;
+        top: 26%;
+    }
+
+    .cover p {
+        width: 100%;
+    }
+
+    .users-list li, #reserve {
+        margin-block: 1.2em;
+    }
+
+    #reserve {
+        margin-bottom: 2.5em;
+    }
+
+    #reserve li > p {
+        margin-bottom: .4em !important;
+    }
+
+    .accordion-item {
+        bottom: -.05em;
+    }
+
+    .users-list svg {
+        top: 15px;
+    }
+
+    .btn-users {
+        bottom: 1.6em;
+    }
+
+    .text-width p {
+        padding-inline: 1em !important;
+    }
+
+    .accordion-button {
+        padding-inline: 4% !important;
+    }
+}

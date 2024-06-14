@@ -9,7 +9,7 @@ $src_video = "../Imagenes/start/video/";
 <head>
     <title>Web portfolio</title>
     <meta name charset="utf-8" />
-    <meta name="description" property="og:description" content="Data analysis web platform - A tool that integrates administrative control and business intelligence." />
+    <meta name="description" property="og:description" content="A tool that integrates administrative control and business intelligence." />
     <meta name="author" content="Annet Vargas Dueñas" />
     <meta name="viewport" content="width=device-width" />
 
@@ -57,7 +57,7 @@ $src_video = "../Imagenes/start/video/";
             </div>
         </nav>
 
-        <svg id="backG" class="absolute" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-2 2 2200 820" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="">
+        <svg id="backG" class="absolute" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="-2 2 2200 820" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
             <defs>
                 <!-- shadow -->
                 <radialGradient id="shadow" cx="0%" cy="0%" r="100%" fx="10%" fy="10%" gradientTransform="translate(1.49, .14)">
@@ -68,10 +68,7 @@ $src_video = "../Imagenes/start/video/";
             <use xlink:href="..\Imagenes\start\xxl\backG.svg#Layer_1" fill="url(#shadow)" />
         </svg>
         <div class="cover row justify-content-end" id="cover">
-        <!-- I resorted to this practice because I used a lot of CSS and JS code to program the cover design 
-        before learning better techniques. I solved this problem according to my abilities on the 
-        instructions page. -->
-            <img class="cover-space" src="<?php echo $src_xxl; ?>height.png" alt="" aria-hidden="true" /> <!--* -->
+            <img class="cover-space" src="<?php echo $src_xxl; ?>height.png" alt="" aria-hidden="true" />
             <img id="blue" class="absolute" src="" alt="" aria-hidden="true" />
             <img id="devices" class="absolute" src="" alt="" aria-hidden="true" />
             <span id="coverText" class="absolute">
@@ -300,7 +297,8 @@ $src_video = "../Imagenes/start/video/";
                             </span>
                             <span>
                                 <label class="form-label" for="iAm">I'm a:</label>
-                                <input id="iAm" class="form-control form-control-sm" type="text" maxlength="80" NAME="iAm" aria-label="I am a" title="Indicate your position or provide a brief description about yourself in a single sentence." aria-label="Indicate your position or provide a brief description about yourself in a single sentence." />
+                                <input id="iAm" class="form-control form-control-sm" type="text" maxlength="80" NAME="iAm" aria-label="I am a" title="Indicate your position or provide a brief description about yourself in a single sentence." aria-describedby="iAm-description" />
+                                <p id="iAm-description" class="absolute invisible">Indicate your position or provide a brief description about yourself in a single sentence.</p>
                             </span>
                             <span>
                                 <label class="form-label" for="message">Message:</label>

@@ -58,11 +58,6 @@ document.addEventListener('fullscreenchange', (event) => {
     confPlyr();
 });
 
-// document.addEventListener("click", function(event) {
-//     // var x = event.clientX;
-//     console.log(getComputedStyle(videoB).display);
-// });
-
 function confPlyr(){
     let width = parseInt(getComputedStyle(video).width);
     if (width <= 795){
@@ -278,7 +273,6 @@ function responsiveCover(width){
 }
 
 function printGridT(src){
-    // bloquear las demás imagenes con srcset y ver que tal
     devices.src = src + "devices.png";
     blue.src = src + "blue.png";
     video.setAttribute("data-poster", src + "poster.png");
