@@ -78,12 +78,9 @@ nav {
     z-index: 2;
 }
 
-#reserve li > p {
-    margin-bottom: 3.5em !important;
-}
-
 #reserve li {
     position: absolute;
+    padding-bottom: 4.7em !important;
 }
 
 .accordion-height {
@@ -159,7 +156,8 @@ nav {
 
 .accordion-item {
     position: relative;
-    bottom: 3em;
+    bottom: .7em;
+    /* bottom: 3em; */
     left: 0;
 }
 
@@ -315,12 +313,8 @@ nav {
         position: absolute;
     }
 
-    #reserve li > p {
-        margin-bottom: 3.9em !important;
-    }
-
     .accordion-item {
-        bottom: 3.5em;
+        bottom: .9em;
     }
 
     .accordion-height {
@@ -360,7 +354,7 @@ nav {
     }
 
     .reset-btn {
-        margin-bottom: -.2em;
+        margin-bottom: -.25em;
     }
 }
 
@@ -410,7 +404,7 @@ nav {
     }
 
     .accordion-item {
-        bottom: 3.3em;
+        bottom: .7em;
     }
 
     .accordion-height {
@@ -493,12 +487,12 @@ nav {
         margin-bottom: 2.6em;
     }
 
-    #reserve li > p {
-        margin-bottom: .6em !important;
+    #reserve li {
+        padding-bottom: 5em !important;
     }
 
     .accordion-item {
-        bottom: .1em;
+        bottom: .7em;
     }
 
     .accordion-height {
@@ -533,10 +527,6 @@ nav {
     .accordion-button {
         padding-inline: .4em !important;
     }
-
-    .reset-btn {
-        margin-bottom: -.1em;
-    }
 }
 
 @media screen and (max-width: 420px){
@@ -544,9 +534,16 @@ nav {
         top: 32.2%;
     }
 
+    #reserve li {
+        padding-bottom: 4.9em !important;
+    }
+
     .reset-btn {
         font-size: calc(var(--p-sm-size) + 1.5px);
-        margin-bottom: -.2em;
+    }
+
+    .text-width p {
+        padding-inline: 2.4em !important;
     }
 }
 
@@ -568,16 +565,16 @@ nav {
         margin-bottom: 2.5em;
     }
 
-    #reserve li > p {
-        margin-bottom: .4em !important;
-    }
-
-    .accordion-item {
-        bottom: -.05em;
-    }
-
     .users-list svg {
         top: 15px;
+    }
+
+    .accordion-button {
+        padding-inline: 4% !important;
+    }
+
+    .reset-btn {
+        margin-bottom: -.5em;
     }
 
     .btn-users {
@@ -586,9 +583,5 @@ nav {
 
     .text-width p {
         padding-inline: 1em !important;
-    }
-
-    .accordion-button {
-        padding-inline: 4% !important;
     }
 }

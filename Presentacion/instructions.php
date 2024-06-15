@@ -52,7 +52,7 @@ $src_xxl = "../Imagenes/start/xxl/";
             </div>
         </nav>
 
-        <span id="cover" class="cover bg-container d-block">
+        <span id="cover" class="cover bg-container d-block bg-white">
             <!-- agregar más sombra a la portada index -->
             <img class="background" src="<?php echo $src_xxl; ?>instructions.png" srcset="<?php echo $src_md; ?>instructions.png 887w, <?php echo $src_xxl; ?>instructions.png" alt="" aria-hidden="true" />
             <img class="cover-space" src="<?php echo $src_xxl; ?>height.png" alt="" aria-hidden="true" />
@@ -120,7 +120,7 @@ $src_xxl = "../Imagenes/start/xxl/";
                                     <use xlink:href="..\Imagenes\start\avocado.svg#Layer_1" />
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Packer</h2>
-                                <p class="mt-3 pb-0">Examine statistical analyzes of the evolution of the organization, as well as your company, and download them in PDF or CSV format to share and/or create your own analyses.</p>
+                                <p class="mt-3">Examine statistical analyzes of the evolution of the organization, as well as your company, and download them in PDF or CSV format to share and/or create your own analyses.</p>
                                 <div class="accordion-item m-0 p-0">
                                     <h3 class="accordion-header row m-0 p-0" id="heading">
                                         <button class="accordion-button collapsed m-0 p-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse" aria-label="Access help for packer"></button>
