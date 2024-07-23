@@ -1,3 +1,5 @@
+import {handleResponse, resetModal, validateEmail} from "./utils.js";
+
 const blue = document.querySelector("#blue");
 const backG = document.querySelector("#backG");
 const devices = document.querySelector("#devices");
@@ -11,7 +13,9 @@ const coverArrow = document.querySelector("#coverText > svg");
 const navArrow = document.querySelector("#navbarNav > svg");
 const navbarNav =  document.querySelector("#navbarNav");
 const video = document.querySelector("#video");
-const form = document.querySelector("form");
+const form = document.querySelector("#contact-form");
+const modalElement = document.querySelector("#modal-dialog");
+const email = document.querySelector("#email");
 var volume;
 const svgH = 820;
 const svgX = -2;
@@ -26,9 +30,11 @@ const titleW = 373;
 const minTopNavMd = 410;
 const heightPor = .503372 //(2015 * 100) / 4003 blue.png
 let gridT = -1;
+let modal;
 
 document.addEventListener("DOMContentLoaded", () => {
     let width = window.innerWidth;
+    modal = new bootstrap.Modal(modalElement);
     responsiveCover(width);
     stickyMenu(width);
     initializePlyr();
@@ -58,6 +64,60 @@ document.addEventListener('fullscreenchange', (event) => {
     confPlyr();
 });
 
+document.querySelector("#modal-close-btn").addEventListener("click", () => {
+    modal.hide();
+});
+
+email.addEventListener("keyup", () => {
+    validateEmail(email);
+});
+
+email.addEventListener("keydown", () => {
+    email.setCustomValidity('');
+});
+
+document.querySelector("#submit-button").addEventListener("click", (event) => {
+    event.preventDefault();
+    resetModal(modalElement.querySelector("p"), document.querySelectorAll(".notification-modal > svg"));
+
+    if (form.checkValidity() == true){
+        var parameters = {
+            name: document.querySelector("#name").value,
+            email: email.value,
+            phone: document.querySelector("#phone").value,
+            iAm: document.querySelector("#i-am").value,
+            message: document.querySelector("#message").value
+        }
+
+        // actualizar url
+        let status;
+        fetch("http://localhost:3000/message", {
+                method: "POST",
+                headers: {
+                    "Content-Type" : "application/json"
+                },
+                body: JSON.stringify(parameters),
+                credentials: "include"
+            }
+        ).then((response) => {
+            status = response.status;
+            return response.text();
+        }).then((text) => {
+            handleResponse(status, text, modal, modalElement.querySelector("p"));
+        }).catch((error) => {
+            if(error.message.includes("HTTP error")){
+                handleResponse(status, text, modal, modalElement.querySelector("p"));
+            } else{
+                handleResponse(-1, "There was an issue processing your request. Please check your internet connection and try again later.", modal, modalElement.querySelector("p"));
+            }
+        });
+        // debo limpiar el formulario si fue success
+        // translate?
+    } else {
+        form.reportValidity();
+    }
+});
+
 function confPlyr(){
     let width = parseInt(getComputedStyle(video).width);
     if (width <= 795){
@@ -69,7 +129,7 @@ function confPlyr(){
 
 function initializePlyr(){
     const plyr = new Plyr(video, {
-        title: 'Project Introduction',
+        title: "Project Introduction",
         captions: {
             active: true,
         },
