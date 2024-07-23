@@ -1,7 +1,12 @@
 <?php
+// escribir bien la ruta ---------------------------------------------------------------------------------
+include '../funciones.php';
+
 $src_md = "../Imagenes/start/md/";
 $src_xxl = "../Imagenes/start/xxl/";
 $src_video = "../Imagenes/start/video/";
+$url_ogImage = "https://annetvd.000webhostapp.com/Imagenes/start/index-ogImage.png";
+$index_url = "https://" . $hostName;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +14,6 @@ $src_video = "../Imagenes/start/video/";
 <head>
     <title>Web portfolio</title>
     <meta name charset="utf-8" />
-    <meta name="description" property="og:description" content="A tool that integrates administrative control and business intelligence." />
     <meta name="author" content="Annet Vargas Dueñas" />
     <meta name="viewport" content="width=device-width" />
 
@@ -20,8 +24,17 @@ $src_video = "../Imagenes/start/video/";
 
     <!-- Open Graph -->
     <meta property="og:title" content="Data analysis web platform" />
+    <meta name="description" property="og:description" content="A tool that integrates administrative control and business intelligence." />
+    <meta property="og:image" content="<?php echo $url_ogImage; ?>" />
     <meta property="og:site_name" content="annetvd" />
-    <meta property="og:url" content="https://annetvd.000webhostapp.com" />
+    <meta property="og:url" content="<?php echo $index_url; ?>" />
+
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Data analysis web platform">
+    <meta name="twitter:description" content="A tool that integrates administrative control and business intelligence.">
+    <meta name="twitter:image" content="<?php echo $url_ogImage; ?>">
+    <meta name="twitter:url" content="<?php echo $index_url; ?>">
 
     <!-- Docs styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
@@ -61,7 +74,7 @@ $src_video = "../Imagenes/start/video/";
             <defs>
                 <!-- shadow -->
                 <radialGradient id="shadow" cx="0%" cy="0%" r="100%" fx="10%" fy="10%" gradientTransform="translate(1.49, .14)">
-                    <stop offset="40%" style="stop-color:rgb(140,140,140);stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:rgb(100,100,100);stop-opacity:1" />
                     <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
                 </radialGradient>
             </defs>
@@ -281,30 +294,31 @@ $src_video = "../Imagenes/start/video/";
 
                 <div id="contact" class="px-4 px-sm-5 pb-5 mb-3 mt-1 mt-lg-4 pt-3">
                     <span class="row pb-4 mb-2 px-0 px-sm-3 bg-content justify-content-center justify-content-lg-start">
-                        <form class="col-12 row row-cols-1 px-4 py-4 mb-5 mt-4 shadow-css bg-content bg-white text-start form" aria-labelledby="formTitle">
+                        <form id="contact-form" name="contact-form" class="col-12 row row-cols-1 px-4 py-4 mb-5 mt-4 shadow-css bg-content bg-white text-start form" method="post" action="#" aria-labelledby="formTitle">
                             <h2 id="formTitle" class="text-center mt-1 mb-0">Contact me</h2>
-                            <span>
-                                <label class="form-label" for="phone">Phone:</label>
-                                <input id="phone" class="form-control form-control-sm" type="tel" maxlength="10" minlength="10" NAME="phone" pattern="[0-9]+" autocomplete="on" aria-label="Phone" />
-                            </span>
                             <span>
                                 <label class="form-label" for="name">Name:</label>
                                 <input id="name" class="form-control form-control-sm" type="text" maxlength="50" NAME="name" required autocomplete="on" aria-label="Name" />
                             </span>
                             <span>
-                                <label class="form-label" for="email">Email:</label>
-                                <input id="email" class="form-control form-control-sm" type="text" maxlength="50" NAME="email" required pattern="[a-z0-9._%+-ñ]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="on" aria-label="Email" />
+                                <label class="form-label" for="email">Email:</label> <!-- ya validé pattern, solo me falta lo de js -->
+                                <input id="email" class="form-control form-control-sm" type="email" maxlength="254" NAME="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" autocomplete="on" aria-label="Email" />
+                                <!-- <span id="emailError"></span> -->
                             </span>
                             <span>
-                                <label class="form-label" for="iAm">I'm a:</label>
-                                <input id="iAm" class="form-control form-control-sm" type="text" maxlength="80" NAME="iAm" aria-label="I am a" title="Indicate your position or provide a brief description about yourself in a single sentence." aria-describedby="iAm-description" />
-                                <p id="iAm-description" class="absolute invisible">Indicate your position or provide a brief description about yourself in a single sentence.</p>
+                                <label class="form-label" for="phone">Phone:</label>
+                                <input id="phone" class="form-control form-control-sm" type="tel" maxlength="10" minlength="10" NAME="phone" pattern="[0-9]+" autocomplete="on" aria-label="Phone" title="Use numbers only." />
+                            </span>
+                            <span>
+                                <label class="form-label" for="i-am">I'm a:</label>
+                                <input id="i-am" class="form-control form-control-sm" type="text" maxlength="80" NAME="i-am" aria-label="I am a" title="Indicate your position or provide a brief description about yourself in a single sentence." aria-describedby="i-am-description" />
+                                <p id="i-am-description" class="absolute invisible">Indicate your position or provide a brief description about yourself in a single sentence.</p>
                             </span>
                             <span>
                                 <label class="form-label" for="message">Message:</label>
                                 <textarea id="message" class="form-control form-control-sm" maxlength="700" NAME="message" required autocomplete="off" aria-label="Message"></textarea>
                             </span>
-                            <button class="col-8 button blue text-white mb-4">Send</button>
+                            <button id="submit-button" class="col-8 button blue text-white mb-4" type="submit">Send</button>
                         </form>
                     </span>
                 </div>
@@ -345,11 +359,12 @@ $src_video = "../Imagenes/start/video/";
             </span>
         </span>
     </footer>
+    <?php printModal(); ?>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
-    <script rel="preload" src="../js/inicio.js" defer></script>
-    <!-- bootstrap -->
-    <script src="../Librerias/bootstrap.min.js"></script>
+    <script src = "../Librerias/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/validator@13.7.0/validator.min.js"></script>
+    <script rel="preload" type="module" src="../js/inicio.js" defer></script>
 </body>
 
 </html>

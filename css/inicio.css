@@ -14,7 +14,7 @@
     --captios-xs: 10px;
 
     /* form position */
-    --actual-width: 0px;
+    --actual-width: 992px;
     --buttons-width: 583px;
     --form-subtraction: 179px;
 
@@ -56,7 +56,7 @@
     width: 90px;
 }
 
-.form textarea, input[type="text"], input[type="tel"] {
+.form textarea, input:not([type="button"]):not([type="submit"]):not([type="range"]) {
     height: 40px;
     border-radius: 22px;
     border: 1px solid rgb(100, 100, 100);
@@ -66,6 +66,8 @@
 
 .form textarea {
     height: 160px;
+    max-height: 300px;
+    min-height: 100px;
 }
 
 .form span {
@@ -393,20 +395,16 @@
         width: 330px;
     }
 
-    .form textarea, input[type="text"], input[type="tel"] {
+    .form textarea, input:not([type="button"]):not([type="submit"]):not([type="range"]) {
         height: 35px;
         padding-inline: .8em;
-    }
-    
-    .form textarea {
-        height: 160px;
     }
     
     .form span {
         padding-top: .7em;
     }
     
-    .form label, textarea, input[type="text"], input[type="tel"], button {
+    .form label, textarea, input:not([type="button"]):not([type="submit"]):not([type="range"]), button {
         font-size: var(--form-sm-size);
     }
     
@@ -428,7 +426,7 @@
         padding-inline: .5em;
     }
 
-    .form label, input[type="text"], input[type="tel"], button {
+    .form label, input:not([type="button"]):not([type="submit"]):not([type="range"]), button {
         font-size: var(--p-sm-size);
     }
     
@@ -446,7 +444,7 @@
         padding-inline: 0em;
     }
 
-    .form input[type="text"], input[type="tel"] {
+    .form input:not([type="button"]):not([type="submit"]):not([type="range"]) {
         height: 32px;
     }
     
