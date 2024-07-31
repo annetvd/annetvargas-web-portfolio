@@ -12,7 +12,7 @@ async function logMessage(data){
         logConnection = await connectLog();
         await logConnection.connect();
       } catch(error) {
-        if (error.cause === undefined) error.cause = "Error connecting Awococado database";
+        if (error.cause === undefined) error.cause = "Error connecting log database";
         values = ["Contact", data.name, error.cause, error.message];
         helpers.logError(values, connectLog);
         return {success: false, message: error.cause, data: error.message};
@@ -22,22 +22,18 @@ async function logMessage(data){
       logConnection.beginTransaction();
       query = `INSERT INTO messages VALUES(null,?, ?, ?, ?, ?, ?)`;
       values = [helpers.getDateTime(), data.name, data.email, data.phone, data.iAm, data.message];
-
-      logConnection.execute(query, values, (err, result) => {
-        if (error) {
-          //rollback
-          logConnection.rollback();
-          throw error;
-        }
-      });
+      await logConnection.execute(query, values);
 
       return {success: true, message: "Message insertion completed. Commit pending", data: logConnection};
       //If sendMessage() is completed successfully, the connection will be closed there.
     } catch(error) {
       error.cause = "Error logging the message in the database";
       values = ["Contact", data.name, error.cause, error.message];
-      helpers.logError(values, connectLog);
+      //rollback
+      logConnection.rollback();
       if (logConnection) await logConnection.end();
+      helpers.logError(values, connectLog);
+
       return {success: false, message: error.cause, data: error.message};
     }
 }

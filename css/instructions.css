@@ -60,22 +60,30 @@ nav {
     width: 50%;
 }
 
-.users-list li, #reserve {
-    max-width: 300px;
-    background-color: var(--dark-blue);
+.users-list span:not( li > span, li > a > span), .users-list li {
     height: 480px;
-    list-style: none;
     border-radius: 27px;
-    color: white;
-    padding: 2.5em;
+}
+
+.users-list span:not( li > span, li > a > span) {
+    max-width: 300px;
     position: relative;
     margin-inline: 2.5em;
     margin-block: 2.2em;
     box-shadow: 0px 0px 200px rgba(84, 97, 254, 0.05);
+    z-index: 2;
+    /* ? */
 }
 
-#reserve {
-    z-index: 2;
+.users-list li {
+    background-color: var(--dark-blue);
+    list-style: none;
+    color: white;
+    padding: 2.5em;
+}
+
+.users-list li a:hover, .users-list li a:active, .users-list li a:visited {
+    color: white;
 }
 
 #reserve li {
@@ -188,13 +196,13 @@ nav {
 }
 
 @media screen and (max-width: 1600px) {
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         margin-inline: 2.2em;
     }
 }
 
 @media screen and (max-width: 1400px) {
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         margin-inline: 1.8em;
     }
 }
@@ -226,12 +234,15 @@ nav {
         width: calc((max(var(--width), var(--min-width-calculation-cover)) - 350px)* .68);
     }
 
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         max-width: 480px;
-        height: auto;
-        min-height: 290px;
         margin-inline: 2em;
         margin-block: 1.8em;
+    }
+
+    .users-list span:not( li > span, li > a > span), .users-list li {
+        height: auto;
+        min-height: 290px;
     }
 
     #reserve {
@@ -282,7 +293,7 @@ nav {
 }
 
 @media screen and (max-width: 1200px){
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         margin-inline: 1.5em;
         margin-block: 1.3em;
     }
@@ -297,12 +308,18 @@ nav {
         left: calc(12% - ((991px - var(--width)) * .17));
     }
 
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         max-width: 300px;
-        min-height: 445px;
-        padding: 2.2em;
         margin-inline: 1.8em;
         margin-block: 1.6em;
+    }
+
+    .users-list span:not( li > span, li > a > span), .users-list li {
+        min-height: 445px;
+    }
+
+    .users-list li {
+        padding: 2.2em;
     }
 
     #reserve {
@@ -377,7 +394,7 @@ nav {
         font-size: max(calc(var(--width) * .024), var(--description-sm-size));
     }
 
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         margin-inline: 1.6em;
         margin-block: 1.4em;
     }
@@ -388,11 +405,14 @@ nav {
 }
 
 @media screen and (max-width: 767px) {
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         max-width: 480px;
+        margin-inline: 0;
+    }
+
+    .users-list span:not( li > span, li > a > span), .users-list li {
         height: auto;
         min-height: 280px;
-        margin-inline: 0;
     }
 
     #reserve {
@@ -477,9 +497,15 @@ nav {
         font-size: var(--description-sm-size);
     }
 
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         max-width: 300px;
+    }
+
+    .users-list span:not( li > span, li > a > span), .users-list li {
         min-height: 395px;
+    }
+
+    .users-list li {
         padding-bottom: 5.5em;
     }
 
@@ -557,7 +583,7 @@ nav {
         width: 100%;
     }
 
-    .users-list li, #reserve {
+    .users-list span:not( li > span, li > a > span) {
         margin-block: 1.2em;
     }
 

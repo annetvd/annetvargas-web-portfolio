@@ -37,8 +37,8 @@ async function connectLog() {
 
         return connection;
     } catch (error) {
-        if(connection) await connection.end();
-        console.error("Error connecting to the log database: ", error);
+        if (connection) await connection.end();
+        console.error("Error connecting to the log database: ", error.message);
     }
 }
 

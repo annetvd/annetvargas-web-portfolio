@@ -12,7 +12,7 @@ async function logError(values, connectLog) {
     values[3] = values[3].length > maxLengthMss ? values[3].substring(0, maxLengthMss) : values[3];
     try {
         logConnection = await connectLog();
-        logConnection.execute(query, [getDateTime(), ...values]);
+        await logConnection.execute(query, [getDateTime(), ...values]);
     } catch (err) {
         console.error("Error logging an issue in the log database: " + err);
     } finally {

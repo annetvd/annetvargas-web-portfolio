@@ -24,7 +24,7 @@ router.post("/message", async (req, res) => {
       return res.status(500).send(failureMsg);
     }
   } catch (error) {
-    throw error;
+    next(error);
   }
 });
 
