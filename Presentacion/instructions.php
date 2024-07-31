@@ -1,6 +1,16 @@
 <?php
-$src_md = "../Imagenes/start/md/";
-$src_xxl = "../Imagenes/start/xxl/";
+    // escribir bien la ruta ---------------------------------------------------------------------------------
+    include '../variables.php';
+
+    $src_md = "../Imagenes/start/md/";
+    $src_xxl = "../Imagenes/start/xxl/";
+    $url_ogImage = "https://annetvd.000webhostapp.com/Imagenes/start/instructions-ogImage.png";
+    $inst_url = "https://".$hostName."/instructions.php";
+
+    // logins
+    $acountingU = "acounting@awococado.com";
+    $acountingP = "Acounting_.430202460";
+    $staticsU = "statics@awococado.com";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +18,6 @@ $src_xxl = "../Imagenes/start/xxl/";
 <head>
     <title>Instructions</title>
     <meta name charset="utf-8" />
-    <meta name="description" property="og:description" content="Find information about each type of user and recommendations before accessing the project." />
     <meta name="author" content="Annet Vargas Dueñas" />
     <meta name="viewport" content="width=device-width" />
 
@@ -17,8 +26,17 @@ $src_xxl = "../Imagenes/start/xxl/";
 
     <!-- Open Graph -->
     <meta property="og:title" content="Instructions for logging in to the data analysis web platform" />
+    <meta name="description" property="og:description" content="Find information about each type of user and recommendations before accessing the project." />
+    <meta property="og:image" content="<?php echo $url_ogImage; ?>" />
     <meta property="og:site_name" content="annetvd" />
-    <meta property="og:url" content="https://annetvd.000webhostapp.com" />
+    <meta property="og:url" content="<?php echo $inst_url; ?>" />
+
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Instructions for logging in to the data analysis web platform">
+    <meta name="twitter:description" content="Find information about each type of user and recommendations before accessing the project.">
+    <meta name="twitter:image" content="<?php echo $url_ogImage; ?>">
+    <meta name="twitter:url" content="<?php echo $inst_url; ?>">
 
     <!-- Docs styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous" />
@@ -27,6 +45,8 @@ $src_xxl = "../Imagenes/start/xxl/";
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
     <link href="..\css\instructions.css" rel="stylesheet">
+    <!-- javascript -->
+    <script rel="preload" src="../js/instructions.js" defer></script>
 </head>
 
 <body style="background-color: #1f2aaf;">
@@ -53,7 +73,6 @@ $src_xxl = "../Imagenes/start/xxl/";
         </nav>
 
         <span id="cover" class="cover bg-container d-block bg-white">
-            <!-- agregar más sombra a la portada index -->
             <img class="background" src="<?php echo $src_xxl; ?>instructions.png" srcset="<?php echo $src_md; ?>instructions.png 887w, <?php echo $src_xxl; ?>instructions.png" alt="" aria-hidden="true" />
             <img class="cover-space" src="<?php echo $src_xxl; ?>height.png" alt="" aria-hidden="true" />
             <svg class="absolute laptop-shadow" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
@@ -78,42 +97,51 @@ $src_xxl = "../Imagenes/start/xxl/";
     <main role="main" class="bg-container p-0 users-shadow" style="min-height: 1000px;">
         <img class="background" src="<?php echo $src_xxl; ?>users.png" srcset="<?php echo $src_md; ?>users.png 887w, <?php echo $src_xxl; ?>users.png" alt="" aria-hidden="true" />
         <div class="container">
+            <!-- me falta lo de la imagen de whats -->
             <span class="d-block m-0 py-5 px-2 px-xl-5">
                 <span class="row justify-content-center py-2 px-0">
                     <ul class="row users-list justify-content-center px-2 px-sm-3 px-md-0 py-md-2 py-lg-3 py-xl-1">
-                        <li class="bg-content col-12 col-md-5">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 283" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
-                                <use xlink:href="..\Imagenes\start\coins.svg#Layer_1" />
-                            </svg>
-                            <h2 class="mt-xl-4 pt-4">Accounting</h2>
-                            <p class="mt-3">Operate an agile workflow with custom-made administrative tools, monitor cash receipts and interact with the client in an automated way.</p>
-                            <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Accounting"><span>Accounting login</span></a>
-                        </li>
-                        <li class="bg-content col-12 col-md-5">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351 233" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
-                                <use xlink:href="..\Imagenes\start\lineChart.svg#Layer_1" />
-                            </svg>
-                            <h2 class="mt-xl-4 pt-4">Statistics</h2>
-                            <p class="mt-3">Manage the organization's most important source of information and access statistical analysis to identify patterns and trends.</p>
-                            <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Statistics"><span>Statistics login</span></a>
-                        </li>
-                        <li class="bg-content col-12 col-md-5">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 281" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
-                                <use xlink:href="..\Imagenes\start\gears.svg#Layer_1" />
-                            </svg>
-                            <h2 class="mt-xl-4 pt-4">Administrator</h2>
-                            <p class="mt-3">Monitor all movements of the platform, register users and use the tools provided by the application to protect the information stored on the server.</p>
-                            <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Administrator"><span>Administrator login</span></a>
-                        </li>
+                        <span class="bg-content col-12 col-md-5 p-0">
+                            <li class="bg-content w-100 m-0">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 283" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
+                                    <use xlink:href="..\Imagenes\start\coins.svg#Layer_1" />
+                                </svg>
+                                <h2 class="mt-xl-4 pt-4">Accounting</h2>
+                                <p class="mt-3">Operate an agile workflow with custom-made administrative tools, monitor cash receipts and interact with the client in an automated way.</p>
+                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Accounting"><span>Accounting login</span></a>
+                            </li>
+                        </span>
+                        <span class="bg-content col-12 col-md-5 p-0">
+                            <li class="bg-content w-100 m-0">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 351 233" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
+                                    <use xlink:href="..\Imagenes\start\lineChart.svg#Layer_1" />
+                                </svg>
+                                <h2 class="mt-xl-4 pt-4">Statistics</h2>
+                                <p class="mt-3">Manage the organization's most important source of information and access statistical analysis to identify patterns and trends.</p>
+                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Statistics"><span>Statistics login</span></a>
+                            </li>
+                        </span>
+                        <span class="bg-content col-12 col-md-5 p-0">
+                            <li class="bg-content w-100 m-0">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 281" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
+                                    <use xlink:href="..\Imagenes\start\gears.svg#Layer_1" />
+                                </svg>
+                                <h2 class="mt-xl-4 pt-4">Administrator</h2>
+                                <p class="mt-3">Monitor all movements of the platform, register users and use the tools provided by the application to protect the information stored on the server.</p>
+                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Administrator"><span>Administrator login</span></a>
+                            </li>
+                        </span>
                         <span class="w-100 d-none d-xxl-inline"></span>
-                        <li class="bg-content col-12 col-md-5">
-                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219 280" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
-                                <use xlink:href="..\Imagenes\start\file.svg#Layer_1" />
-                            </svg>
-                            <h2 class="mt-xl-4 pt-4">Auxiliary</h2>
-                            <p class="mt-3">Supports the statistical user by capturing validated, homogeneous and quality data.</p>
-                            <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Assistant"><span>Assistant login</span></a>
-                        </li>
+                        <span class="bg-content col-12 col-md-5 p-0">
+                            <li class="bg-content w-100 m-0">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219 280" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
+                                    <use xlink:href="..\Imagenes\start\file.svg#Layer_1" />
+                                </svg>
+                                <h2 class="mt-xl-4 pt-4">Auxiliary</h2>
+                                <p class="mt-3">Supports the statistical user by capturing validated, homogeneous and quality data.</p>
+                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Assistant"><span>Assistant login</span></a>
+                            </li>
+                        </span>
                         <span id="reserve" class="bg-content col-12 col-md-5 p-0">
                             <li class="bg-content w-100 accordion-height m-0">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 281" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
@@ -182,7 +210,6 @@ $src_xxl = "../Imagenes/start/xxl/";
         </span>
     </footer>
 
-    <script rel="preload" src="../js/instructions.js" defer></script>
     <!-- bootstrap -->
     <script src="../Librerias/bootstrap.min.js"></script>
 </body>
