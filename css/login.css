@@ -1,0 +1,51 @@
+@import url("presentacion.css");
+
+a {
+    color: #19221f;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7eca28;
+}
+
+main {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.no-gutters {
+    --bs-gutter-x: 0 !important;
+}
+
+.form-padding {
+    padding-inline: 1.5em;
+}
+
+.background {
+    min-height: 578.16px;
+}
+
+@media screen and (max-width: 575px) {
+    .form-padding {
+        padding-inline: 4.5em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .form-padding {
+        padding-inline: 3em;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .form-padding {
+        padding-inline: 2.2em;
+    }
+}
+
+@media screen and (max-width: 359px) {
+    .form-padding {
+        padding-inline: 1.5em;
+    }
+}

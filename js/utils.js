@@ -1,7 +1,7 @@
-export function handleResponse(status, message, modal, modalMessage){
+export function handleResponse(successIcon, status, message, modal, modalMessage){
     let icon;
     if (status == 200) {
-        icon = document.querySelector("#success");
+        icon = document.querySelector(`#${successIcon}`);
     } else {
         if (status == 404) {
             icon = document.querySelector("#not-found");

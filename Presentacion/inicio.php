@@ -1,10 +1,12 @@
 <?php
 // escribir bien la ruta ---------------------------------------------------------------------------------
-include '../funciones.php';
+include "../php/utils.php";
+include "../variables.php";
 
 $src_md = "../Imagenes/start/md/";
 $src_xxl = "../Imagenes/start/xxl/";
 $src_video = "../Imagenes/start/video/";
+//there is no variable for the site_name
 $url_ogImage = "https://annetvd.000webhostapp.com/Imagenes/start/index-ogImage.png";
 $index_url = "https://" . $hostName;
 ?>
@@ -18,15 +20,13 @@ $index_url = "https://" . $hostName;
     <meta name="viewport" content="width=device-width" />
 
     <!-- icon -->
-    <!------------- url -----------------------------------------------------------------------------------
------------------------------------------------------------------------>
     <link rel="shorcut icon" href="..\Imagenes\av.ico">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Data analysis web platform" />
     <meta name="description" property="og:description" content="A tool that integrates administrative control and business intelligence." />
     <meta property="og:image" content="<?php echo $url_ogImage; ?>" />
-    <meta property="og:site_name" content="annetvd" />
+    <meta property="og:site_name" content="annetvargas" />
     <meta property="og:url" content="<?php echo $index_url; ?>" />
 
     <!-- twitter card -->
@@ -42,9 +42,9 @@ $index_url = "https://" . $hostName;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-    <!------------- url -----------------------------------------------------------------------------------
------------------------------------------------------------------------>
     <link href="..\css\inicio.css" rel="stylesheet">
+    <!-- JavaScript -->
+    <script rel="preload" type="module" src="../js/inicio.js" defer></script>
 </head>
 
 <body>
@@ -91,8 +91,8 @@ $index_url = "https://" . $hostName;
                     <a href="instructions.php">Try it</a>
                 </div>
                 <span id="title">
-                    <h1>Data analysis <br />web platform</h1>
-                    <p>A tool that integrates administrative <br />control and business intelligence.</p>
+                    <h1>Data analysis web platform</h1>
+                    <p>A tool that integrates administrative control and business intelligence.</p>
                 </span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" alt="" aria-hidden="true">
                     <path fill-rule="evenodd" d="M15.22 6.268a.75.75 0 0 1 .968-.431l5.942 2.28a.75.75 0 0 1 .431.97l-2.28 5.94a.75.75 0 1 1-1.4-.537l1.63-4.251-1.086.484a11.2 11.2 0 0 0-5.45 5.173.75.75 0 0 1-1.199.19L9 12.312l-6.22 6.22a.75.75 0 0 1-1.06-1.061l6.75-6.75a.75.75 0 0 1 1.06 0l3.606 3.606a12.695 12.695 0 0 1 5.68-4.974l1.086-.483-4.251-1.632a.75.75 0 0 1-.432-.97Z" clip-rule="evenodd" />
@@ -135,8 +135,8 @@ $index_url = "https://" . $hostName;
                 <img id="webApp" class="background" src="<?php echo $src_xxl; ?>webApp.png" srcset="<?php echo $src_md; ?>webApp.png 887w, <?php echo $src_xxl; ?>webApp.png" alt="" aria-hidden="true" />
                 <span class="row p-0 justify-content-center py-3 py-lg-5 my-5 text-white px-lg-4 px-xl-5">
                     <div class="col-auto bg-content pb-3 me-xl-5 ps-4 ps-sm-0 ps-xxl-2 pe-4 pe-sm-0 mb-4 mb-sm-5 mb-lg-0">
-                        <span class="ps-2 pb-4 me-xl-5 d-block">
-                            <h2 class="text-start ps-4 pe-3 pe-sm-0">Business web<br /> application</h2>
+                        <span class="ps-2 pb-4 me-xl-5 d-block web-app-title-w">
+                            <h2 class="text-start ps-4 pe-3 pe-sm-0">Business web application</h2>
                         </span>
                         <div class="translucent-box p-4 mb-1 mb-lg-0">
                             <p class="m-0 p-2 pb-3">Transform pieces of information into a unified view of the organization to
@@ -359,12 +359,12 @@ $index_url = "https://" . $hostName;
             </span>
         </span>
     </footer>
+    
     <?php printModal(); ?>
 
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script src = "../Librerias/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/validator@13.7.0/validator.min.js"></script>
-    <script rel="preload" type="module" src="../js/inicio.js" defer></script>
 </body>
 
 </html>
