@@ -1,4 +1,5 @@
 import {handleResponse, resetModal, validateEmail} from "./utils.js";
+import {config} from "./config.js";
 
 const blue = document.querySelector("#blue");
 const backG = document.querySelector("#backG");
@@ -78,10 +79,13 @@ email.addEventListener("keydown", () => {
 
 document.querySelector("#submit-button").addEventListener("click", (event) => {
     event.preventDefault();
-    resetModal(modalElement.querySelector("p"), document.querySelectorAll(".notification-modal > svg"));
+    let modalMessage = modalElement.querySelector("p");
+    resetModal(modalMessage, document.querySelectorAll(".notification-modal > svg"));
 
     if (form.checkValidity() == true){
-        var parameters = {
+        let status;
+        let successIcon = "send";
+        let parameters = {
             name: document.querySelector("#name").value,
             email: email.value,
             phone: document.querySelector("#phone").value,
@@ -89,30 +93,22 @@ document.querySelector("#submit-button").addEventListener("click", (event) => {
             message: document.querySelector("#message").value
         }
 
-        // actualizar url
-        let status;
-        fetch("http://localhost:3000/message", {
-                method: "POST",
-                headers: {
-                    "Content-Type" : "application/json"
-                },
-                body: JSON.stringify(parameters),
-                credentials: "include"
-            }
-        ).then((response) => {
+        fetch(`${config.nodeServerUrl}/message`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(parameters),
+            credentials: "include"
+        }).then((response) => {
             status = response.status;
             return response.text();
         }).then((text) => {
-            handleResponse(status, text, modal, modalElement.querySelector("p"));
+            handleResponse(successIcon, status, text, modal, modalMessage);
+            if (status == 200) form.reset();
         }).catch((error) => {
-            if(error.message.includes("HTTP error")){
-                handleResponse(status, text, modal, modalElement.querySelector("p"));
-            } else{
-                handleResponse(-1, "There was an issue processing your request. Please check your internet connection and try again later.", modal, modalElement.querySelector("p"));
-            }
+            handleResponse(successIcon, -1, config.networkErrorMessage, modal, modalMessage);
         });
-        // debo limpiar el formulario si fue success
-        // translate?
     } else {
         form.reportValidity();
     }
@@ -243,10 +239,9 @@ function stickyMenu(width){
 
 function resizeSetup(width){
     let height = parseInt(width * heightPor);
-    h1.style.marginBottom = parseInt(height * .09) + "px";
+    document.body.style.setProperty("--actual-width", width + "px");
 
     if(width >= 888){
-        form.style.setProperty("--actual-width", width + "px");
         title.style.left = parseInt(width * .069) + "px";
         //fontSize
         if (parseInt(width * .036) >= h1FS){
@@ -275,6 +270,9 @@ function resizeSetup(width){
             if (width <= 575){
                 h1.style.fontSize = h1FSxs + "px";
                 p.style.fontSize = pFSxs + "px";
+            } else {
+                h1.style.fontSize = h1FS + "px";
+                p.style.fontSize = pFS + "px";
             }
         }
         //arrow

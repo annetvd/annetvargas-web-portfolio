@@ -14,9 +14,11 @@
     --captios-xs: 10px;
 
     /* form position */
-    --actual-width: 992px;
+    --actual-width: 0px;
     --buttons-width: 583px;
     --form-subtraction: 179px;
+
+    --heightPor: .503372;
 
     /* plyr library */
     --plyr-color-main: #acdb04;
@@ -194,16 +196,25 @@
     text-decoration: none;
 }
 
-#title{
+#title {
     top: 8em;
     left: 6em;
     position: absolute;
     width: fit-content;
+    max-width: 30%;
+}
+
+#title h1 {
+    margin-bottom: 11.5%;
+}
+
+.web-app-title-w {
+    max-width: 333px;
 }
 
 @media screen and (max-width: 1600px){
     .form {
-        margin-left: calc(((var(--actual-width) - var(--buttons-width)) / 2) - var(--form-subtraction));
+        margin-left: calc(((max(var(--actual-width), 992px) - var(--buttons-width)) / 2) - var(--form-subtraction));
     }
 }
 
@@ -229,6 +240,14 @@
     .container-xs {
         max-width: auto;
     }
+
+    #title {
+        max-width: 355px;
+    }
+
+    #title h1 {
+        margin-bottom: calc((var(--actual-width) * var(--heightPor)) * .09);
+    }
 }
 
 @media screen and (max-width: 1200px){
@@ -238,6 +257,10 @@
 
     .more {
         left: 6%;
+    }
+
+    .web-app-title-w {
+        max-width: 340px;
     }
 }
 
@@ -303,6 +326,7 @@
         color: white;
         display: inline-block;
         padding-inline: 1em;
+        max-width: max(52%, 387px);
     }
 
     #coverText{
@@ -326,7 +350,6 @@
     }
 
     .androidApp {
-        /* width: 375px; */
         width: 440px;
     }
 
@@ -355,6 +378,10 @@
     .button {
         margin-inline: 1em;
     }
+
+    #title {
+        max-width: 387px;
+    }
 }
 
 @media screen and (max-width: 575px){
@@ -364,6 +391,10 @@
 
     #coverText{
         height: 380px;
+    }
+
+    #title {
+        max-width: 350px;
     }
 
     .check-list li {
@@ -468,7 +499,6 @@
     }
 
     .check-list li > span {
-        /* width: 260px; */
         width: 240px;
     }
 

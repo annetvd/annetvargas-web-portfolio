@@ -1,16 +1,27 @@
 <?php
-    // escribir bien la ruta ---------------------------------------------------------------------------------
-    include '../variables.php';
+// escribir bien la ruta ---------------------------------------------------------------------------------
+include "../variables.php";
+include "../php/utils.php";
 
-    $src_md = "../Imagenes/start/md/";
-    $src_xxl = "../Imagenes/start/xxl/";
-    $url_ogImage = "https://annetvd.000webhostapp.com/Imagenes/start/instructions-ogImage.png";
-    $inst_url = "https://".$hostName."/instructions.php";
+$src_md = "../Imagenes/start/md/";
+$src_xxl = "../Imagenes/start/xxl/";
+$url_ogImage = "https://annetvd.000webhostapp.com/Imagenes/start/instructions-ogImage.png";
+//there is no variable for the site_name
+$inst_url = "https://" . $hostName . "/instructions.php";
 
-    // logins
-    $acountingU = "acounting@awococado.com";
-    $acountingP = "Acounting_.430202460";
-    $staticsU = "statics@awococado.com";
+// logins
+$acountingU = "'acounting@awococado.com'";
+$acountingP = "'Acounting_.430202460'";
+$staticsU = "'statistics@awococado.com'";
+$staticsP = "'Statistics_.430202460'";
+$administratorU = "'administrator@awococado.com'";
+$administratorP = "'Admin_.430202460'";
+$auxiliaryU = "'auxiliary@awococado.com'";
+// no me dejó ingresar
+$auxiliaryP = "'Auxiliary_.430202460'";
+$packerU = "'packer@example.com'";
+$packerP = "'Packer_.430202460'";
+$packerId = 5;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +39,7 @@
     <meta property="og:title" content="Instructions for logging in to the data analysis web platform" />
     <meta name="description" property="og:description" content="Find information about each type of user and recommendations before accessing the project." />
     <meta property="og:image" content="<?php echo $url_ogImage; ?>" />
-    <meta property="og:site_name" content="annetvd" />
+    <meta property="og:site_name" content="annetvargas" />
     <meta property="og:url" content="<?php echo $inst_url; ?>" />
 
     <!-- twitter card -->
@@ -97,7 +108,6 @@
     <main role="main" class="bg-container p-0 users-shadow" style="min-height: 1000px;">
         <img class="background" src="<?php echo $src_xxl; ?>users.png" srcset="<?php echo $src_md; ?>users.png 887w, <?php echo $src_xxl; ?>users.png" alt="" aria-hidden="true" />
         <div class="container">
-            <!-- me falta lo de la imagen de whats -->
             <span class="d-block m-0 py-5 px-2 px-xl-5">
                 <span class="row justify-content-center py-2 px-0">
                     <ul class="row users-list justify-content-center px-2 px-sm-3 px-md-0 py-md-2 py-lg-3 py-xl-1">
@@ -108,7 +118,7 @@
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Accounting</h2>
                                 <p class="mt-3">Operate an agile workflow with custom-made administrative tools, monitor cash receipts and interact with the client in an automated way.</p>
-                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Accounting"><span>Accounting login</span></a>
+                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $acountingU . ', ' . $acountingP; ?>);" aria-label="Log In as Accounting">Accounting login</button>
                             </li>
                         </span>
                         <span class="bg-content col-12 col-md-5 p-0">
@@ -118,7 +128,7 @@
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Statistics</h2>
                                 <p class="mt-3">Manage the organization's most important source of information and access statistical analysis to identify patterns and trends.</p>
-                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Statistics"><span>Statistics login</span></a>
+                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $staticsU . ', ' . $staticsP; ?>);" aria-label="Log In as Statistics">Statistics login</button>
                             </li>
                         </span>
                         <span class="bg-content col-12 col-md-5 p-0">
@@ -128,10 +138,9 @@
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Administrator</h2>
                                 <p class="mt-3">Monitor all movements of the platform, register users and use the tools provided by the application to protect the information stored on the server.</p>
-                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Administrator"><span>Administrator login</span></a>
+                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $administratorU . ', ' . $administratorP; ?>);" aria-label="Log In as Administrator">Administrator login</button>
                             </li>
                         </span>
-                        <span class="w-100 d-none d-xxl-inline"></span>
                         <span class="bg-content col-12 col-md-5 p-0">
                             <li class="bg-content w-100 m-0">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219 280" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" alt="" aria-hidden="true">
@@ -139,7 +148,7 @@
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Auxiliary</h2>
                                 <p class="mt-3">Supports the statistical user by capturing validated, homogeneous and quality data.</p>
-                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Assistant"><span>Assistant login</span></a>
+                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $auxiliaryU . ', ' . $auxiliaryP; ?>);" aria-label="Log In as Assistant">Assistant login</button>
                             </li>
                         </span>
                         <span id="reserve" class="bg-content col-12 col-md-5 p-0">
@@ -156,12 +165,12 @@
                                     <div id="collapse" class="accordion-collapse collapse p-0 m-0" aria-labelledby="heading">
                                         <div class="accordion-body p-0 m-0 row justify-content-center">
                                             <p class="pb-1 pb-xl-0">Modify this user's email to experience the password change process, as well as to send invoices, payment supplements and reports to your email.</p>
-                                            <button class="reset-btn mt-2" type="button" aria-label="Reset username and password" title="If you have a problem with this user's email or password, click here." aria-describedby="reset-description">Reset user access</button>
+                                            <button class="reset-btn mt-2" data-user="<?php echo $packerU; ?>" data-password="<?php echo $packerP; ?>" data-user-id="<?php echo $packerId; ?>" aria-label="Reset username and password" title="If you have a problem with this user's email or password, click here." aria-describedby="reset-description">Reset user access</button>
                                             <p id="reset-description" class="absolute invisible">If you have trouble logging in as this user, click here.</p>
                                         </div>
                                     </div>
                                 </div>
-                                <a href="#" class="button btn-users row p-0 text-center w-100" role="button" aria-label="Log In as Packer"><span>Packer login</span></a>
+                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $packerU . ', ' . $packerP; ?>);" aria-label="Log In as Packer">Packer login</button>
                             </li>
                         </span>
                     </ul>
@@ -209,6 +218,14 @@
             </span>
         </span>
     </footer>
+
+    <!-- hidden elements -->
+    <form id="set-login-user" class="d-none" method="get" action="..\index.php" target="_blanck">
+        <input type="hidden" id="user" name="user" />
+        <input type="hidden" id="password" name="password" />
+    </form>
+
+    <?php printModal(); ?>
 
     <!-- bootstrap -->
     <script src="../Librerias/bootstrap.min.js"></script>

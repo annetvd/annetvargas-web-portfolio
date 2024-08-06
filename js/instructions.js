@@ -1,3 +1,6 @@
+import {config} from "./config.js"; 
+import {resetModal, handleResponse} from "./utils.js";
+
 const srcXxl = "../Imagenes/start/xxl/";
 const srcMd = "../Imagenes/start/md/";
 const usersBtn = document.querySelector(".btn-users");
@@ -6,12 +9,14 @@ const reserve = document.querySelector("#reserve");
 const reserveLi = document.querySelector("#reserve > li");
 const collapse = document.querySelector("#collapse");
 const laptop = document.querySelector("#laptop");
-const body = document.body;
+const modalElement = document.querySelector("#modal-dialog");
 let usersBtnWidth = -1;
 let reserveLiHeight = -1;
+let modal;
 
 document.addEventListener("DOMContentLoaded", () => {
     let width = window.innerWidth;
+    modal = new bootstrap.Modal(modalElement);
     printImg(width);
     setWidth(width);
     setPackerLiCss();
@@ -31,13 +36,38 @@ window.addEventListener("orientationchange", () => {
     setPackerLiCss();
 });
 
+document.querySelector(".reset-btn").addEventListener("click", (event) => {
+    let modalMessage = modalElement.querySelector("p");
+    let status;
+    let successIcon = "success";
+    let parameters = {
+        user: event.target.getAttribute("data-user"),
+        password: event.target.getAttribute("data-password"),
+        userId: event.target.getAttribute("data-user-id")
+    }
+    // si funciona, modificar inicio.js
+    resetModal(modalMessage, modalElement.querySelectorAll("svg"));
+
+    fetch(`${config.nodeServerUrl}/reset-packer-user`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json" 
+        },
+        body: JSON.stringify(parameters),
+        credentials: "include"
+    }).then((response) => {
+        status = response.status;
+        return response.text();
+    }).then((text) => {
+        handleResponse(successIcon, status, text, modal, modalMessage);
+    }).catch((error) => {
+        handleResponse(successIcon, -1, config.networkErrorMessage, modal, modalMessage);
+    });
+});
+
 window.onload = () => {
     setPackerLiCss();
 };
-
-// document.addEventListener("click", () => {
-//     alert(window.innerWidth);
-// });
 
 function setPackerLiCss() {
     resizeOReset();
@@ -78,5 +108,11 @@ function printImg(width){
 }
 
 function setWidth(width) {
-    body.style.setProperty("--width", width + "px");
+    document.body.style.setProperty("--width", width + "px");
+}
+
+function redirectToLoginPage(user, password){
+    document.querySelector("#user").value = user;
+    document.querySelector("#password").value = password;
+    document.querySelector("#set-login-user").submit();
 }
