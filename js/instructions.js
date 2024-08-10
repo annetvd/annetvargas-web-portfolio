@@ -1,8 +1,8 @@
 import {config} from "./config.js"; 
 import {resetModal, handleResponse} from "./utils.js";
 
-const srcXxl = "../Imagenes/start/xxl/";
-const srcMd = "../Imagenes/start/md/";
+const srcXxl = "images/xxl/";
+const srcMd = "images/md/";
 const usersBtn = document.querySelector(".btn-users");
 const resetBtn = document.querySelector(".reset-btn");
 const reserve = document.querySelector("#reserve");
@@ -45,7 +45,7 @@ document.querySelector(".reset-btn").addEventListener("click", (event) => {
         password: event.target.getAttribute("data-password"),
         userId: event.target.getAttribute("data-user-id")
     }
-    // si funciona, modificar inicio.js
+    // si funciona, modificar index.js
     resetModal(modalMessage, modalElement.querySelectorAll("svg"));
 
     fetch(`${config.nodeServerUrl}/reset-packer-user`, {

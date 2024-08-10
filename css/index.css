@@ -1,0 +1,526 @@
+@import url("introduction.css");
+
+:root {
+    /* text size */
+    --title-size: 47px;
+    --title-xsm-size: 43px;
+
+    --text-size: 19px;
+    --text-xsm-size: 17px;
+
+    --form-size: 16.5px;
+    --form-sm-size: 15.5px;
+
+    --captios-xs: 10px;
+
+    /* form position */
+    --actual-width: 0px;
+    --buttons-width: 583px;
+    --form-subtraction: 179px;
+
+    --heightPor: .503372;
+
+    /* plyr library */
+    --plyr-color-main: #acdb04;
+    --plyr-captions-background: white;
+    --plyr-captions-text-color: black;
+    --plyr-font-size-base: 80%;
+    --plyr-font-weight-regular: 550;
+    --plyr-font-weight-bold: 600;
+    --plyr-video-background: none;
+}
+
+.video-backg {
+    background-color: var(--blue);
+}
+
+.video {
+    width: 64.5%;
+    height: auto;
+    box-shadow: 1px 4px 30px -5px rgba(0, 0, 0,.3);
+    margin: 0px;
+    padding: 0px;
+}
+
+.more {
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+    white-space: nowrap;
+    top: 57%;
+    left: 6%;
+    position: absolute;
+    width: fit-content;
+}
+
+.more h2 {
+    font-size: var(--p-size);
+    font-weight: 500;
+    width: 90px;
+}
+
+.form textarea, input:not([type="button"]):not([type="submit"]):not([type="range"]) {
+    height: 40px;
+    border-radius: 22px;
+    border: 1px solid rgb(100, 100, 100);
+    font-size: var(--form-size);
+    padding-inline: .9em;
+}
+
+.form textarea {
+    height: 160px;
+    max-height: 300px;
+    min-height: 100px;
+}
+
+.form span {
+    padding-inline: 1em;
+    padding-top: .8em;
+}
+
+.form {
+    margin-left: 336px;
+    max-width: 500px;
+}
+
+.form label {
+    padding-inline: .4em;
+    font-size: var(--form-size);
+}
+
+.form button {
+    height: 55px;
+    margin-inline: auto;
+    margin-top: 2.2em;
+    max-width: none;
+    font-size: var(--form-size);
+}
+
+.check-list li {
+    width: fit-content;
+    padding-bottom: 2.2em;
+}
+
+.check-list svg {
+    margin-block: auto;
+    height: 28px;
+    fill: var(--green);
+    padding-inline: 0;
+}
+
+.check-list li > span {
+    width: 220px;
+    margin: 0;
+    display: block;
+}
+
+.second-list li > span {
+    width: 263px;
+}
+
+.second-list li {
+    padding-bottom: 2.8em;
+}
+
+.try-button {
+    background-image: url('../images/md/tryButton.png');
+    background-size: cover;
+    border: none;
+}
+
+.arrow-up {
+    height: 20px;
+    margin-left: .4em;
+}
+
+.tech-stack {
+    width: 298px;
+}
+
+.androidApp {
+    width: 517px;
+    height: auto;
+}
+
+.container-xs {
+    max-width: 540px;
+}
+
+.cover {
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--blue);
+}
+
+.cover span {
+    left: 0;
+    z-index: 3;
+}
+
+#coverText svg{
+    display: none;
+    fill: var(--green);
+}
+
+#coverText{
+    height: inherit;
+}
+
+#backG {
+    z-index: 1;
+    width: 136%;
+}
+
+#blue {
+    z-index: 0;
+    padding: 0;
+}
+
+#devices{
+    z-index: 2;
+    width: 61%;
+    top: 28%;
+    right: 3.5%;
+}
+
+#menu {
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: 2.45em;
+}
+
+#menu a {
+    font-size: 17px;
+    font-weight: 450;
+    color: white;
+    padding-inline: 2.35em;
+    text-decoration: none;
+}
+
+#title {
+    top: 8em;
+    left: 6em;
+    position: absolute;
+    width: fit-content;
+    max-width: 30%;
+}
+
+#title h1 {
+    margin-bottom: 11.5%;
+}
+
+.web-app-title-w {
+    max-width: 333px;
+}
+
+@media screen and (max-width: 1600px){
+    .form {
+        margin-left: calc(((max(var(--actual-width), 992px) - var(--buttons-width)) / 2) - var(--form-subtraction));
+    }
+}
+
+@media screen and (max-width: 1400px){   
+    .video {
+        width: 795px;
+    }
+
+    .more {
+        left: 75px;
+    }
+}
+
+@media screen and (max-width: 1285px){
+    #menu {
+        display: none;
+    }
+
+    #cover > *, #backG{
+        margin-top: var(--nav-height);
+    }
+
+    .container-xs {
+        max-width: auto;
+    }
+
+    #title {
+        max-width: 355px;
+    }
+
+    #title h1 {
+        margin-bottom: calc((var(--actual-width) * var(--heightPor)) * .09);
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .tech-stack {
+        width: 275px;
+    }
+
+    .more {
+        left: 6%;
+    }
+
+    .web-app-title-w {
+        max-width: 340px;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .check-list li > span {
+        width: 275px;
+    }
+
+    .androidApp {
+        width: 360px;
+    }
+
+    .second-list li > span {
+        width: 208px;
+    }
+
+    .second-list li {
+        padding-bottom: 2.2em;
+    }
+
+    .tech-stack {
+        margin-inline: 1.35em;
+        width: 298px;
+        height: auto;
+    }
+
+    .more {
+        visibility: hidden;
+    }
+
+    .form {
+        margin-inline: 0px;
+    }
+}
+
+@media screen and (max-width: 887px){
+    .cover-space {
+        display: none;
+    }
+    
+    #about h2 {
+        padding-top: 1em;
+    }
+
+    #devices, #backG {
+        visibility: hidden;
+    }
+
+    #blue {
+        position: relative;
+        object-fit: cover;
+    }
+
+    #cover {
+        height: 470px;
+        overflow: hidden;
+    }
+
+    #title {
+        top: 0;
+        left: 0;
+        position: relative;
+        color: white;
+        display: inline-block;
+        padding-inline: 1em;
+        max-width: max(52%, 387px);
+    }
+
+    #coverText{
+        height: 410px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #coverText svg{
+        display: inline-block;
+        position: relative;
+        height: 13em;
+        margin-left: 2em;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .check-list li > span {
+        width: 220px;
+    }
+
+    .androidApp {
+        width: 440px;
+    }
+
+    .container-xs {
+        min-width: 490px;
+    }
+
+    .second-list li > span {
+        width: 320px;
+    }
+
+    .second-list li {
+        padding-bottom: 1.6em;
+    }
+
+    .tech-stack {
+        width: 225px;
+    }
+}
+
+@media screen and (max-width: 699px){
+    #coverText svg{
+        display: none;
+    }
+
+    .button {
+        margin-inline: 1em;
+    }
+
+    #title {
+        max-width: 387px;
+    }
+}
+
+@media screen and (max-width: 575px){
+    #cover{
+        height: 440px;
+    }
+
+    #coverText{
+        height: 380px;
+    }
+
+    #title {
+        max-width: 350px;
+    }
+
+    .check-list li {
+        padding-bottom: 1.2em;
+    }
+
+    .check-list li > span {
+        width: 305px;
+    }
+
+    .androidApp {
+        width: 330px;
+    }
+
+    .androidApp h2 {
+        font-size: 38px;
+    }
+
+    .second-list li > span {
+        width: 247px;
+    }
+
+    .container-xs {
+        max-width: 375px;
+        min-width: auto;
+    }
+
+    .tech-stack {
+        width: 330px;
+    }
+
+    .form textarea, input:not([type="button"]):not([type="submit"]):not([type="range"]) {
+        height: 35px;
+        padding-inline: .8em;
+    }
+    
+    .form span {
+        padding-top: .7em;
+    }
+    
+    .form label, textarea, input:not([type="button"]):not([type="submit"]):not([type="range"]), button {
+        font-size: var(--form-sm-size);
+    }
+    
+    .form button {
+        height: 47px;
+    }
+
+    .form {
+        max-width: 86%;
+    }
+
+    .video-backg {
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .form span {
+        padding-inline: .5em;
+    }
+
+    .form label, input:not([type="button"]):not([type="submit"]):not([type="range"]), button {
+        font-size: var(--p-sm-size);
+    }
+    
+    .form textarea {
+        font-size: var(--p-sm-size);
+    }
+}
+
+@media screen and (max-width: 420px){
+    .plyr__captions {
+        font-size: var(--captios-xs);
+    }
+
+    .form span {
+        padding-inline: 0em;
+    }
+
+    .form input:not([type="button"]):not([type="submit"]):not([type="range"]) {
+        height: 32px;
+    }
+    
+    .form span {
+        padding-top: .5em;
+    }
+
+    .form label {
+        margin-bottom: .35em;
+    }
+
+    .form button {
+        height: 44px;
+    }
+}
+
+@media screen and (max-width: 359px){
+    #title {
+        width: min-content;
+        margin-top: 1em;
+    }
+
+    .check-list li > span {
+        width: 240px;
+    }
+
+    .second-list li > span {
+        width: 232px;
+    }
+
+    .androidApp {
+        width: 83.5%;
+        max-width: 305px;
+    }
+
+    .androidApp h2 {
+        font-size: 32px;
+    }
+
+    .tech-stack {
+        width: 88%;
+        max-width: 305px;
+    }
+
+    .form {
+        max-width: 93%;
+    }
+}
