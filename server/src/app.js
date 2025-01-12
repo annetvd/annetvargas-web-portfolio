@@ -1,6 +1,6 @@
 const express = require("express");
 const routes = require("./routes");
-const config = require("./config/config")
+const config = require("./config/config");
 
 const app = express();
 const port = 3000;
@@ -27,16 +27,8 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
-    if (err instanceof validationResult) {
-        console.error("Validation error:", err);
-        return res.status(422).json({ error: err.array() });
-    }
-    next(err);
-});
-
-app.use(function(err, req, res, next) {
     if (err.code === "ETIMEDOUT") {
-        console.error("Request timeout:", err);
+        console.error("Request timeout:", err.message);
         return res.status(408).send("Your request couldn't be sent to the server. Please check your internet connection and try again.");
     }
     next(err);
@@ -44,18 +36,15 @@ app.use(function(err, req, res, next) {
 
 app.use(function(err, req, res, next) {
     if (err.timeout) {
-        console.error("Gateway timeout:", err);
+        console.error("Gateway timeout:", err.message);
         return res.status(504).send("The server took too long to respond. Please try again later.");
     }
     next(err);
 });
 
 app.use(function(err, req, res, next) {
-    if (res.statusCode === 500){
-        console.error("Unhandled error:", err);
-        res.status(500).send("A server error has occurred. Please try again later.");
-    }
-    next(err);
+    console.error("Unhandled error:", err.message);
+    res.status(500).send("A server error has occurred. Please try again later.");
 });
 
 app.listen(port, () => {

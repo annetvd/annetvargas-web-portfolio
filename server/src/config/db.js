@@ -7,7 +7,7 @@ async function connectAw() {
     try {
         connection = await mysql.createConnection({
             host: process.env.DB_HOST,
-            port: process.env.DB_PORT,
+            // port: process.env.DB_PORT,
             user: process.env.DBA_USER,
             password: process.env.DBA_PASS,
             database: process.env.DB_AWOCOCADO
@@ -29,7 +29,7 @@ async function connectLog() {
     try {
         connection = await mysql.createConnection({
             host: process.env.DB_HOST,
-            port: process.env.DB_PORT,
+            // port: process.env.DB_PORT,
             user: process.env.DBL_USER,
             password: process.env.DBL_PASS,
             database: process.env.DB_LOG
