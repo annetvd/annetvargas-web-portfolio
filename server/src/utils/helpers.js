@@ -8,13 +8,13 @@ function getDateTime() {
 async function logError(values, connectLog) {
     const maxLengthMss = 200;
     let logConnection;
-    let query = `INSERT INTO errorLogs VALUES(null, ?, ?, ?, ?, ?)`;
+    let query = `INSERT INTO errorlogs VALUES(null, ?, ?, ?, ?, ?)`;
     values[3] = values[3].length > maxLengthMss ? values[3].substring(0, maxLengthMss) : values[3];
     try {
         logConnection = await connectLog();
         await logConnection.execute(query, [getDateTime(), ...values]);
-    } catch (err) {
-        console.error("Error logging an issue in the log database: " + err);
+    } catch (error) {
+        console.error("Error logging an issue in the log database: " + error.message);
     } finally {
         if (logConnection) await logConnection.end();
     }

@@ -36,19 +36,27 @@ window.addEventListener("orientationchange", () => {
     setPackerLiCss();
 });
 
+document.querySelectorAll(".btn-users").forEach(element => {
+    element.addEventListener("click", (event) => {
+        document.querySelector("#user").value = event.target.dataset.user;
+        document.querySelector("#password").value = event.target.dataset.password;
+        document.querySelector("#set-login-user").submit();
+    });
+});
+
 document.querySelector(".reset-btn").addEventListener("click", (event) => {
     let modalMessage = modalElement.querySelector("p");
     let status;
     let successIcon = "success";
     let parameters = {
-        user: event.target.getAttribute("data-user"),
+        email: event.target.getAttribute("data-user"),
         password: event.target.getAttribute("data-password"),
         userId: event.target.getAttribute("data-user-id")
     }
     // si funciona, modificar index.js
     resetModal(modalMessage, modalElement.querySelectorAll("svg"));
 
-    fetch(`${config.nodeServerUrl}/reset-packer-user`, {
+    fetch(`${config.nodeServerUrl}/reset-packer-access`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json" 
@@ -109,10 +117,4 @@ function printImg(width){
 
 function setWidth(width) {
     document.body.style.setProperty("--width", width + "px");
-}
-
-function redirectToLoginPage(user, password){
-    document.querySelector("#user").value = user;
-    document.querySelector("#password").value = password;
-    document.querySelector("#set-login-user").submit();
 }

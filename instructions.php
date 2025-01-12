@@ -10,17 +10,17 @@ $url_ogImage = "https://$hostName/images/instructions-ogImage.png";
 $inst_url = "https://" . $hostName . "/instructions.php";
 
 // logins
-$acountingU = "'acounting@awococado.com'";
-$acountingP = "'Acounting_.430202460'";
-$staticsU = "'statistics@awococado.com'";
-$staticsP = "'Statistics_.430202460'";
-$administratorU = "'administrator@awococado.com'";
-$administratorP = "'Admin_.430202460'";
-$auxiliaryU = "'auxiliary@awococado.com'";
+$acountingU = "acounting@awococado.com";
+$acountingP = "Acounting_.430202460";
+$statisticsU = "statistics@awococado.com";
+$statisticsP = "Statistics_.430202460";
+$administratorU = "administrator@awococado.com";
+$administratorP = "Admin_.430202460";
+$auxiliaryU = "auxiliary@awococado.com";
 // no me dejó ingresar
-$auxiliaryP = "'Auxiliary_.430202460'";
-$packerU = "'packer@example.com'";
-$packerP = "'Packer_.430202460'";
+$auxiliaryP = "Auxiliary_.430202460";
+$packerU = "packer@example.com";
+$packerP = "Packer_.430202460";
 $packerId = 5;
 ?>
 <!DOCTYPE html>
@@ -118,7 +118,7 @@ $packerId = 5;
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Accounting</h2>
                                 <p class="mt-3">Operate an agile workflow with custom-made administrative tools, monitor cash receipts and interact with the client in an automated way.</p>
-                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $acountingU . ', ' . $acountingP; ?>);" aria-label="Log In as Accounting">Accounting login</button>
+                                <button class="button btn-users w-100" data-user="<?php echo $acountingU; ?>" data-password="<?php echo $acountingP; ?>" aria-label="Log In as Accounting">Accounting login</button>
                             </li>
                         </span>
                         <span class="bg-content col-12 col-md-5 p-0">
@@ -128,7 +128,7 @@ $packerId = 5;
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Statistics</h2>
                                 <p class="mt-3">Manage the organization's most important source of information and access statistical analysis to identify patterns and trends.</p>
-                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $staticsU . ', ' . $staticsP; ?>);" aria-label="Log In as Statistics">Statistics login</button>
+                                <button class="button btn-users w-100" data-user="<?php echo $statisticsU; ?>" data-password="<?php echo $statisticsP; ?>" aria-label="Log In as Statistics">Statistics login</button>
                             </li>
                         </span>
                         <span class="bg-content col-12 col-md-5 p-0">
@@ -138,7 +138,7 @@ $packerId = 5;
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Administrator</h2>
                                 <p class="mt-3">Monitor all movements of the platform, register users and use the tools provided by the application to protect the information stored on the server.</p>
-                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $administratorU . ', ' . $administratorP; ?>);" aria-label="Log In as Administrator">Administrator login</button>
+                                <button class="button btn-users w-100" data-user="<?php echo $administratorU; ?>" data-password="<?php echo $administratorP; ?>" aria-label="Log In as Administrator">Administrator login</button>
                             </li>
                         </span>
                         <span class="bg-content col-12 col-md-5 p-0">
@@ -148,7 +148,7 @@ $packerId = 5;
                                 </svg>
                                 <h2 class="mt-xl-4 pt-4">Auxiliary</h2>
                                 <p class="mt-3">Supports the statistical user by capturing validated, homogeneous and quality data.</p>
-                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $auxiliaryU . ', ' . $auxiliaryP; ?>);" aria-label="Log In as Assistant">Assistant login</button>
+                                <button class="button btn-users w-100" data-user="<?php echo $auxiliaryU; ?>" data-password="<?php echo $auxiliaryP; ?>" aria-label="Log In as Assistant">Assistant login</button>
                             </li>
                         </span>
                         <span id="reserve" class="bg-content col-12 col-md-5 p-0">
@@ -170,7 +170,7 @@ $packerId = 5;
                                         </div>
                                     </div>
                                 </div>
-                                <button class="button btn-users w-100" onclick="redirectToLoginPage(<?php echo $packerU . ', ' . $packerP; ?>);" aria-label="Log In as Packer">Packer login</button>
+                                <button class="button btn-users w-100" data-user="<?php echo $packerU; ?>" data-password="<?php echo $packerP; ?>" aria-label="Log In as Packer">Packer login</button>
                             </li>
                         </span>
                     </ul>
@@ -220,7 +220,7 @@ $packerId = 5;
     </footer>
 
     <!-- hidden elements -->
-    <form id="set-login-user" class="d-none" method="get" action="..\index.php" target="_blanck">
+    <form id="set-login-user" class="d-none" method="get" action="awococado/index.php" target="_blanck">
         <input type="hidden" id="user" name="user" />
         <input type="hidden" id="password" name="password" />
     </form>
