@@ -14,6 +14,10 @@ let usersBtnWidth = -1;
 let reserveLiHeight = -1;
 let modal;
 
+window.onload = () => {
+    setPackerLiCss();
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     let width = window.innerWidth;
     modal = new bootstrap.Modal(modalElement);
@@ -44,6 +48,10 @@ document.querySelectorAll(".btn-users").forEach(element => {
     });
 });
 
+document.querySelector("#modal-close-btn").addEventListener("click", () => {
+    modal.hide();
+});
+
 document.querySelector(".reset-btn").addEventListener("click", (event) => {
     let modalMessage = modalElement.querySelector("p");
     let status;
@@ -72,10 +80,6 @@ document.querySelector(".reset-btn").addEventListener("click", (event) => {
         handleResponse(successIcon, -1, config.networkErrorMessage, modal, modalMessage);
     });
 });
-
-window.onload = () => {
-    setPackerLiCss();
-};
 
 function setPackerLiCss() {
     resizeOReset();

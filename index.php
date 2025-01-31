@@ -368,6 +368,3 @@ $index_url = "https://".$hostName;
 </body>
 
 </html>
-<!-- <filesMatch ".(css|jpg|jpeg|png|gif|js|ico)$">
-    Header set Cache-Control "max-age=31536000, public"
-    </filesMatch> -->
