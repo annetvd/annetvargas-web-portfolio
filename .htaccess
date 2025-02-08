@@ -3,3 +3,5 @@
 </filesMatch>
 
 AddType text/vtt .vtt
+
+# RedirectMatch 301 ^/awococado/(.*)$ https://awococado.annetvargas.top/$1

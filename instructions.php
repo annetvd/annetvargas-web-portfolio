@@ -220,7 +220,7 @@ $packerId = 5;
     </footer>
 
     <!-- hidden elements -->
-    <form id="set-login-user" class="d-none" method="get" action="awococado/index.php" target="_blanck">
+    <form id="set-login-user" class="d-none" method="get" action="<?php echo $absolutePathAwScripts; ?>" target="_blanck">
         <input type="hidden" id="user" name="user" />
         <input type="hidden" id="password" name="password" />
     </form>

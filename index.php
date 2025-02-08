@@ -301,9 +301,8 @@ $index_url = "https://".$hostName;
                                 <input id="name" class="form-control form-control-sm" type="text" maxlength="50" NAME="name" required autocomplete="on" aria-label="Name" />
                             </span>
                             <span>
-                                <label class="form-label" for="email">Email:</label> <!-- ya validé pattern, solo me falta lo de js -->
+                                <label class="form-label" for="email">Email:</label>
                                 <input id="email" class="form-control form-control-sm" type="email" maxlength="254" NAME="email" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" autocomplete="on" aria-label="Email" />
-                                <!-- <span id="emailError"></span> -->
                             </span>
                             <span>
                                 <label class="form-label" for="phone">Phone:</label>
