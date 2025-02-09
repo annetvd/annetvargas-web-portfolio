@@ -1,5 +1,5 @@
 module.exports = {
     systemEmail: "annetvargasd@gmail.com",
-    clientSideAccessAllowed: "http://localhost",
+    clientSideAccessAllowed: "https://annetvargas.top",
     clientHostDomain: "https://annetvargas.top"
 };
