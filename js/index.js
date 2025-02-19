@@ -35,7 +35,10 @@ let modal;
 
 document.addEventListener("DOMContentLoaded", () => {
     let width = window.innerWidth;
-    modal = new bootstrap.Modal(modalElement);
+    modal = new bootstrap.Modal(modalElement, {
+        backdrop: "static",
+        keyboard: false
+    });
     responsiveCover(width);
     stickyMenu(width);
     initializePlyr();

@@ -1,0 +1,79 @@
+.cambioColor a {
+    color: white;
+}
+
+.cambioColor a:hover {
+    color: #f5ffd5;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.115);
+}
+
+.espacio{
+    margin-bottom: 75px;
+}
+
+.fontTabla tr {
+    font-size: 15px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+}
+
+thead tr th{ 
+    border: 0;
+}
+
+thead tr{ 
+    border: 0;
+}
+
+body {
+    min-width: 480px;
+}
+
+.modal-backdrop {
+    min-width: 100%;
+    height: 100% !important;
+}
+
+.row-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer > div > p {
+    line-height: 150%;
+}
+
+.tag-background {
+    background-color: none;
+}
+
+.iframe {
+    max-width: 900px;
+    width: 100%
+}
+
+@media screen and (max-width: 1200px) {
+    .footer {
+        position: absolute !important;
+        z-index: 2;
+        float: right;
+        right: 0px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .tag-background {
+        background-color: #19221f;
+    }
+}

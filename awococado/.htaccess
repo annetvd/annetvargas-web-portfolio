@@ -1,0 +1,11 @@
+# RewriteEngine On
+
+# RewriteCond %{HTTP_HOST} ^awococado\.annetvargas\.top$ [NC]
+
+# /libraries/
+# RewriteCond %{REQUEST_URI} ^/libraries/
+# RewriteRule ^(.*)$ https://annetvargas.top/$1 [L,R=301]
+
+# introduction.css
+# RewriteCond %{REQUEST_URI} ^/css/introduction.css$ [NC]
+# RewriteRule ^css/introduction.css$ https://annetvargas.top/css/introduction.css [L,R=301]

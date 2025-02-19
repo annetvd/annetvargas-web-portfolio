@@ -1,7 +1,7 @@
 <div id="modal-dialog" class="modal fade" tabindex="-1" role="dialog" aria-describedby="modal-body" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-top" role="document">
         <div class="modal-content p-2 px-3">
-            <button id="modal-close-btn" type="button" class="close border-0 close-modal bg-white" data-dismiss="modal">X</button>
+            <button id="modal-close-btn" type="button" class="close border-0 close-modal bg-white" data-bs-dismiss="modal">X</button>
             <div class="modal-body notification-modal">
                 <svg id="send" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon d-none" alt="" aria-hidden="true">
                     <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />

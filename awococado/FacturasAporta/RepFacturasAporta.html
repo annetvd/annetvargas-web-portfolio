@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Rep. Facturas empacadoras</title>
+    <meta name charset="utf-8"/>
+    <meta name = "autor" content = ""/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"/>
+
+	<link rel="shortcut icon" href="..\Imagenes\icono.ico">
+
+	<style type="text/css">
+		.cambioColor a {
+		    color: white;
+		}
+
+		.cambioColor a:hover {
+		    color: #f5ffd5;
+		}
+
+		.header{
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            box-shadow: 0px 2px 10px rgba(0,0,0,.115);
+        }
+
+        .espacio{
+        	margin-bottom: 75px;
+        }
+	</style>
+</head>
+<body class="bg-light" onload="impTipAport(); impMunicipio();">
+	<script>
+		const tabla = 'empacadora';
+		var valido = false;
+
+		function impTipAport(){
+			var tipoAport = "tipoAport";
+		    var tipA = document.getElementById("tipoAportacion").value;
+		    var tipAM = document.getElementById("divCancelar").style.display;
+
+			var parametros = {
+				"id" : tipoAport
+			}
+
+			$.ajax({
+				data: parametros,
+	            url: '/consultar.php',
+	            type: 'post',
+	            success:  function (response) {
+	            	if(tipA == ""){
+		            	$("#tipoAportacion").html(response);
+		            } 
+			        if (tipAM == "none"){
+	            	    $("#tipoAportacionM").html(response);
+	            	}
+	            }
+	        });
+		}
+
+		function impMunicipio(){
+			var municipios = "municipios";
+			var mun = document.getElementById("municipio").value; 
+			var munM = document.getElementById("divCancelar").style.display;
+
+			var parametros = {
+				"id" : municipios
+			}
+
+			$.ajax({
+				data: parametros,
+	            url: '/consultar.php',
+	            type: 'post',
+	            success:  function (response) {
+	            	if(mun == ""){
+	            	    $("#municipio").html(response);
+		            }
+		            if (munM == "none"){
+	            	    $("#municipioM").html(response);
+	            	}
+	            }
+	        });
+		}
+
+		function impNombre(){
+			var bandera = document.getElementById("divCancelar").style.display;
+			if (bandera == "none"){
+				var idEmpacadora = "idEmpacadora";
+				var parametros = {
+					"id" : idEmpacadora
+				}
+
+				$.ajax({
+					data: parametros,
+		            url: '/consultar.php',
+		            type: 'post',
+		            success:  function (response) {
+		            	$("#idEmpacadora").html(response);
+		            }
+		        });
+
+		        document.getElementById('formularioM').reset();
+		        document.getElementById("modificarB").disabled = true;
+			}
+		}
+
+		function consultar() {
+			var parametros = {
+				"id" : tabla
+			}
+
+			$.ajax({
+				data: parametros,
+	            url: '/consultar.php',
+	            type: 'post',
+	            success:  function (response) {
+	                $("#idTBody").html(response);
+	            }
+	        });
+		}
+
+		function validar (){
+			var formulario = document.getElementById('formulario');
+			valido = formulario.checkValidity();
+		}
+
+		function validarM (){
+			var formulario = document.getElementById('formularioM');
+			valido = formulario.checkValidity();
+		}
+
+		function registrar (){
+		    if(valido == true ){
+		    	var nombre = document.getElementById("nombre").value;
+				var tipoAportacion = document.getElementById('tipoAportacion').value;
+				var RFC = document.getElementById('RFC').value;
+				var CP = document.getElementById('CP').value;
+				var direccion = document.getElementById('direccion').value;
+				var colonia = document.getElementById('colonia').value;
+				var municipio = document.getElementById('municipio').value;
+				var correo = document.getElementById('correo').value;
+				var telefono = document.getElementById('telefono').value;
+				var saldo = document.getElementById('saldo').value;
+				var año = document.getElementById('año').value;
+				var mes = document.getElementById('mes').value;
+				var fechaP = document.getElementById('fechaP').value;
+				var total = document.getElementById('total').value;
+
+			    var parametros = {
+				    "id" : tabla,
+				    "nombre" : nombre,
+				    "RFC" : RFC,
+				    "CP" : CP,
+				    "direccion" : direccion,
+				    "colonia" : colonia,
+				    "correo" : correo,
+				    "telefono" : telefono,
+				    "saldo" : saldo,
+				    "año" : año,
+				    "mes" : mes,
+				    "fechaP" : fechaP,
+				    "total" : total,
+				    "municipio" : municipio,
+				    "tipoAportacion" : tipoAportacion
+			    }
+
+				$.ajax({
+					data: parametros,
+		            url: '/registrar.php',
+		            type: 'post',
+		            success:  function () {
+		            	$("#registro").html(nombre);
+		            	$("#titulo").html("REGISTRO EXITOSO");
+		            	// abro el modal para notificar registro
+		                $("#abrirmodal").trigger("click");
+		                // limpio el formulario
+		                document.getElementById('formulario').reset();
+		                impTipAport(); 
+		                impMunicipio();
+		            }
+		        });
+			}
+	    }
+
+	    function imprimir() {
+			var obtEmpacadora = "obtEmpacadora";
+			var idEmpacadora = document.getElementById("idEmpacadora").value;
+			var nomEmpa = document.getElementById("idEmpacadora").options[document.getElementById("idEmpacadora").selectedIndex].text;
+
+			if (nomEmpa == "..."){
+				document.getElementById('formularioM').reset();
+				document.getElementById("modificarB").disabled = true;
+			}else{
+				var parametros = {
+					"id" : obtEmpacadora,
+					"idEmpacadora" : idEmpacadora
+				}
+
+				$.ajax({
+					data: parametros,
+		            url: '/consultar.php',
+		            type: 'post',
+		            dataType: "json",
+		            success:  function (response) {
+		            	rellenar(response.result.RFC, response.result.Nombre, response.result.Direccion, response.result.Colonia, response.result.Correo, response.result.CP, response.result.Telefono, response.result.IdMunicipio, response.result.IdTipoAportacion);
+		            }
+		        });
+			}
+		} 
+
+		function rellenar(RFC, nom, dir, col, email, CP, tel, mun, tipA){
+			document.getElementById("RFCM").value = RFC;
+			document.getElementById("nombreM").value = nom;
+			document.getElementById("direccionM").value = dir;
+			document.getElementById("coloniaM").value = col;
+			document.getElementById("correoM").value = email;
+			document.getElementById("CPM").value = CP;
+			document.getElementById("telefonoM").value = tel;
+			document.getElementById("municipioM").value = mun;
+			document.getElementById("tipoAportacionM").value = tipA;	
+			document.getElementById("modificarB").disabled = false;
+		}
+
+		function modificar(){
+			document.getElementById("nombreM").disabled = false;
+			document.getElementById("direccionM").disabled = false;
+			document.getElementById("coloniaM").disabled = false;
+			document.getElementById("correoM").disabled = false;
+			document.getElementById("CPM").disabled = false;
+			document.getElementById("telefonoM").disabled = false;
+			document.getElementById("municipioM").disabled = false;
+			document.getElementById("tipoAportacionM").disabled = false;	
+			document.getElementById("guardarB").disabled = false;
+			document.getElementById("idEmpacadora").disabled = true;
+			document.getElementById("modificarB").disabled = false;
+
+			document.getElementById("divModificar").style.display = "none";
+			document.getElementById("divCancelar").style.display = "inline";
+		}
+
+		function guardar(){
+			if(valido == true ){
+				var mod = "modificarEmpacadora";
+				var idEmpacadora = document.getElementById("idEmpacadora").value;
+		    	var nombre = document.getElementById("nombreM").value;
+				var tipoAportacion = document.getElementById('tipoAportacionM').value;
+				var CP = document.getElementById('CPM').value;
+				var direccion = document.getElementById('direccionM').value;
+				var colonia = document.getElementById('coloniaM').value;
+				var municipio = document.getElementById('municipioM').value;
+				var correo = document.getElementById('correoM').value;
+				var telefono = document.getElementById('telefonoM').value;
+
+			    var parametros = {
+				    "id" : mod,
+				    "nombre" : nombre,
+				    "CP" : CP,
+				    "direccion" : direccion,
+				    "colonia" : colonia,
+				    "correo" : correo,
+				    "telefono" : telefono,
+				    "municipio" : municipio,
+				    "tipoAportacion" : tipoAportacion,
+				    "idEmpacadora" : idEmpacadora
+			    }
+
+				$.ajax({
+					data: parametros,
+		            url: '/registrar.php',
+		            type: 'post',
+		            success:  function () {
+		            	$("#registro").html(nombre);
+		            	$("#titulo").html("MODIFICACIÓN EXITOSA");
+		            	// abro el modal para notificar registro
+		                $("#abrirmodal").trigger("click");
+		                // limpio el formulario
+		                $("#nombreM, #RFCM, #CPM, #direccionM, #coloniaM, #idEmpacadora, #correoM, #telefonoM").val('');
+		                impNombre(); 
+		            }
+		        });
+
+		        document.getElementById("nombreM").disabled = true;
+				document.getElementById("direccionM").disabled = true;
+				document.getElementById("coloniaM").disabled = true;
+				document.getElementById("correoM").disabled = true;
+				document.getElementById("CPM").disabled = true;
+				document.getElementById("telefonoM").disabled = true;
+				document.getElementById("municipioM").disabled = true;
+				document.getElementById("tipoAportacionM").disabled = true;	
+				document.getElementById("guardarB").disabled = true;
+				document.getElementById("idEmpacadora").disabled = false;
+
+				document.getElementById("divModificar").style.display = "inline";
+			    document.getElementById("divCancelar").style.display = "none";
+			}
+		}
+
+		function cancelar(){
+			document.getElementById("nombreM").disabled = true;
+			document.getElementById("direccionM").disabled = true;
+			document.getElementById("coloniaM").disabled = true;
+			document.getElementById("correoM").disabled = true;
+			document.getElementById("CPM").disabled = true;
+			document.getElementById("telefonoM").disabled = true;
+			document.getElementById("municipioM").disabled = true;
+			document.getElementById("tipoAportacionM").disabled = true;	
+			document.getElementById("guardarB").disabled = true;
+			document.getElementById("idEmpacadora").disabled = false;
+			document.getElementById("modificarB").disabled = true;
+
+			document.getElementById("divModificar").style.display = "inline";
+			document.getElementById("divCancelar").style.display = "none";
+
+			$.ajax({
+	            success:  function () {
+	                $("#nombreM, #RFCM, #CPM, #direccionM, #coloniaM, #idEmpacadora, #correoM, #telefonoM").val('');
+	                impNombre(); 
+	            }
+	        });
+		}
+	</script>
+
+	<hearder>
+		<div style="box-shadow: 0px 2px 10px rgba(0,0,0,.115);">
+			<!-------------------------------------- Usuario ---------------------------------------------->
+	        <div class="card col-12 text-white border-0" id="usuario">
+	        	<iframe style="height: 75px;" src= "..\Imagenes\CabeceraFormulario.html"></iframe>
+				<div class="card-img-overlay m-0 p-0">
+				    <div class="container-fluid">
+		        		<div class="col-12 row px-4 text-white align-items-center">
+		        			<img src = "..\Imagenes\usuario.png" style="height: 45px; width: auto;" class="my-3 px-3">
+		            	    <span class="col-9 col-md-10 col-lg-11"><strong>Hola, Annet Vargas Dueñas</strong></span>
+		        		</div>
+			        </div>
+				</div>
+			</div>
+
+	        <!------------------------------------- Navegador----------------------------------------------->
+	        <nav id ="barra">
+	            <div class="navbar navbar-expand-lg navbar-light px-3 bg-light py-0" style="min-height: 75px;">
+	                <div class="container-fluid">
+	                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="btnNav">
+	                        <span class="navbar-toggler-icon"></span>
+	                    </button>
+
+	                    <div class="collapse navbar-collapse" id="navbarNav">
+	                        <ul class="navbar-nav">
+	                            <li class="nav-item">
+	                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Movimientos</button>
+	                                <ul class="dropdown-menu">
+	                                    <li><a class="dropdown-item" href="#">Certificados</a></li>
+	                                    <li><a class="dropdown-item" href="#">Facturas empacadoras</a></li>
+	                                    <li><a class="dropdown-item" href="#">Facturas proveedores</a></li>
+	                                    <li><a class="dropdown-item" href="#">Cobros</a></li>
+	                                    <li><a class="dropdown-item" href="#">Pagos</a></li>
+	                                    <li><a class="dropdown-item" href="ExpedidorCFI.html">ExpedidorCFI</a></li>
+	                                    <li><a class="dropdown-item" href="Regulaciones.html">Regulaciones</a></li>
+	                                </ul>
+	                            </li>
+	                            <li class="nav-item">
+	                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Estadísticas</button>
+	                                <ul class="dropdown-menu">
+	                                    <li><a class="dropdown-item" href="#">Por empacadora</a></li>
+	                                    <li><a class="dropdown-item" href="#">Por periodo</a></li>
+	                                    <li><a class="dropdown-item" href="#">Por destino</a></li>
+	                                </ul>
+	                            </li>
+	                            <li class="nav-item">
+	                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Reportes</button>
+	                                <ul class="dropdown-menu">
+	                                    <li><a class="dropdown-item" href="#">Por periodo</a></li>
+	                                    <li><a class="dropdown-item" href="#">Por empacadora</a></li>
+	                                </ul>
+	                            </li>
+	                            <li class="nav-item">
+	                                <a class="nav-link text-dark px-3" href="index.html">Menú principal</a>
+	                            </li>
+	                        </ul>
+	                    </div>
+	                    <div class="col-lg-3 col-md-4 col-7 px-3 text-end" id="imgLogo">
+	                	    <img src = "..\Imagenes\Logo2.png" class = "img-fluid" style="max-height: 68px;">
+	            		</div>
+	                </div>
+	            </div>
+	        </nav>
+	    </div>
+    </hearder>
+
+    <main>
+		<div class = "container-fluid">
+			<div class="row py-5 justify-content-center">
+				<div class = "col-12" style="max-width: 1010px;">
+	                <!-- -----------------------------------------tabs----------------------------------------- -->
+	                <ul class="nav nav-tabs cambioColor">
+	                    <li class="nav-item active rounded-top" style="background-color: #19221f;">
+	                        <a href="#consultaP" class="nav-link active" role="tab" data-toggle="tab" onClick=""><strong>CONSULTA POR PERIODO</strong></a>
+	                    </li>
+
+	                    <li class="nav-item rounded-top" style="background-color: #19221f;">
+	                        <a href="#consultaE" class="nav-link" role="tab" data-toggle="tab" onClick = "impNombre();"><strong>CONSULTA POR EMPACADORA</strong></a>
+	                    </li>
+	                </ul>
+
+	                <div class="tab-content bg-white border border-top-0 rounded-3 text-justify" style="box-shadow: 0px 0px 10px #c6c6c6;">
+	                	<!-- ------------------------------------Consultar periodo--------------------------------------- -->
+	                    <div role="tabpanel" class="tab-pane in active" id="consultaP">
+	                        <div class="px-lg-5 px-2 px-md-3">
+	                        	<FORM id = "formularioCP" NAME="INSERTAR" method = 'POST' action = '#' target ="request">
+									<div class="card border-0 mb-4 p-4">
+									    <div class="text-center col-md-12 col-12 mt-4">
+				                            <h2><strong>CONSULTA POR PERIODO</strong></h2>
+				                        </div>
+				                        <div class="row col-12 col-md-6 m-0 p-0 gy-1 mt-3 mb-2">
+										    <div class="col-6 ps-0">
+										        <label class=" form-label">Fecha inicial</label><input id = "fechaI" class = "form-control form-control-sm col-12" type = 'date' name = 'fechaI' required></input>
+										    </div>
+										    <div class="col-6 pe-0">
+										        <label class=" form-label">Fecha final</label><input id = "fechaF" class = "form-control form-control-sm col-12" type = 'date' name = 'fechaF' required></input>
+										    </div>
+				                        </div>
+			                            <div style="overflow: auto; height: 550px;" class="col-12 mt-4 mb-3">
+							            	<table class="form-control-sm table table-bordered mt-0 mb-0" id = "tabla" style="width: 1350px;">
+										        <tr style="background-color: #318a3a; color: white; border-color: #318a3a;" class="text-center">
+										        	<th>Id Folio</th>
+										            <th>Empacadora</th>
+										            <th>Folio factura</th>
+										            <th>Fecha de emición</th>
+										            <th>Cantidad</th>
+										            <th>Estatus</th>
+										            <th>Saldo</th>
+										            <th>Concepto</th></tr>
+										        <tbody id="idTBody">
+		                                      
+		                                        </tbody>
+										    </table>
+								        </div>
+								    </div>
+								</FORM>
+	                        </div>
+	                    </div>
+
+	                    <!-- -----------------------------------Consultar empacadora--------------------------------------- -->
+	                    <div role="tabpanel" class="tab-pane fade" id="consultaE">
+	                        <div class="px-lg-5 px-2 px-md-3">
+	                        	<FORM id = "formularioCE" NAME="INSERTAR" method = 'POST' action = '#' target ="request">
+									<div class="card border-0 mb-4 p-4">
+									    <div class="text-center col-md-12 col-12 mt-4">
+				                            <h2><strong>CONSULTA POR EMPACADORA</strong></h2>
+				                        </div>
+				                        <div class="card-body row gy-2">
+				                        	<!--------------------------------- primera columna ---------------------------------->
+					                        <div class="row col-12 col-md-6 m-0 p-0 gy-1 mt-2 mb-2">
+										        <div class="col-12">
+										        	<label class=" form-label">Empacadora</label>
+										        	<Select id = "empacadora" class = "form-select form-select-sm col-12" name='empacadora' onChange="idEmpacadora();" required></Select>
+										        </div>
+										        <div class="col-5">
+										        	<label class="form-label">Id Empacadora</label><INPUT id = "idEmpacadora" class = "form-control form-control-sm col-12" TYPE="text" NAME="idEmpacadora" disabled></INPUT>
+										        </div>
+
+										        <div class="col-7">
+										        	<label class="form-label">RFC </label><INPUT id = "RFC" class = "form-control form-control-sm col-12" TYPE="text" NAME="RFC" disabled></INPUT>
+										        </div>
+										        <div class="col-12">
+										        	<label class=" form-label">Tipo de aportación </label><INPUT id = "tipoAportacion" class = "form-control form-control-sm col-12" TYPE="text" NAME="tipoAportacion" disabled></INPUT>
+										        </div>
+											    <div class="col-12">
+											        <label class=" form-label">Dirección </label><INPUT id = "direccion" class = "form-control form-control-sm" TYPE="text" NAME="direccion" disabled></INPUT>
+											    </div>
+											</div>
+											<!------------------------------ segunda columna ---------------------------->
+											<div class="row col-12 col-md-6 m-0 p-0 gy-1 mt-2 mb-2">
+											    <div class="col-12">
+											        <label class=" form-label">Colonia </label><INPUT id = "colonia" class = "form-control form-control-sm" TYPE="text" NAME="colonia" disabled></INPUT>
+											    </div><div class="col-12">
+											        <label class=" form-label">Municipio </label><INPUT id = "mpio" class = "form-control form-control-sm" TYPE="text" NAME="mpio" disabled></INPUT>
+											    </div>
+											    <div class="col-12">
+											        <label class=" form-label col-12">Email </label><INPUT id = "correo" class = "form-control form-control-sm col-12" type = 'text' NAME="correo" disabled></INPUT>
+											    </div>
+											    <div class="col-6 col-md-3">
+											        <label class="form-label col-12">CP </label><INPUT id = "CP" class = "form-control form-control-sm" TYPE="text" NAME="CP" disabled></INPUT>
+											    </div>
+											    <div class="col-6 col-md-5">
+											        <label class=" form-label">Teléfono </label><INPUT id = "telefono" class = "form-control form-control-sm" type='text' NAME="telefono" disabled></INPUT>
+											    </div>
+											    <div class="col-6 col-md-4">
+											        <label class=" form-label">Saldo</label><INPUT id = "saldo" class = "form-control form-control-sm" TYPE="text" NAME="saldo" disabled></INPUT>
+											    </div>
+											</div>
+							            </div>
+							            <div class="px-3">
+				                            <div style="overflow: auto; height: 550px;" class="col-12 mt-4 mb-3">
+								            	<table class="form-control-sm table table-bordered mt-0 mb-0" id = "tabla" style="width: 1350px;">
+										        <tr style="background-color: #318a3a; color: white; border-color: #318a3a;" class="text-center">
+										        	<th>Id Folio</th>
+										            <th>Empacadora</th>
+										            <th>Folio factura</th>
+										            <th>Fecha de emición</th>
+										            <th>Cantidad</th>
+										            <th>Estatus</th>
+										            <th>Saldo</th>
+										            <th>Concepto</th></tr>
+										        <tbody id="idTBody">
+		                                      
+		                                        </tbody>
+										    </table>
+									        </div>
+									    </div>
+								    </div>
+								</FORM>
+	                        </div>
+	                    </div>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+    </main>
+
+	<footer>
+		<div class="container-fluid pt-5 mt-5">
+			<div class="p-0 row align-items-center" style="background-color: #000101;">
+				<div class="p-0 col-lg-4 col-md-5">
+					<img src="../Imagenes/Pie.png" class="" style="max-height: 180px;">
+				</div>
+				<div class="ps-3 pe-3 pe-lg-5 text-white text-end col-lg-8 col-md-7 row justify-content-end" style="font: 80% Arial;">
+					<div class="col-7 d-md-block d-sm-block d-none d-sm-none pe-0 pe-lg-5" style="color: rgba(255,255,255,.4);">
+						<p class="m-2">CONTACTO | © 2024 AWOCOCADO A.C.</p>
+						<p class="m-2">Emiliano Zapata 7, Col. Centro. CP 49000, Cd. Guzmán, Jal. MX</p>
+						<p class="m-2">Tel. (+52) 341-4100042 | E-mail info@awococado.com</p>
+					</div>
+					<div class="col-5 d-md-block d-sm-block d-none d-sm-none" style="margin-bottom: auto; margin-top: auto;">
+						<p class="m-0" style="line-height: 150%; color: rgba(255,255,255,.4);">AWOCOCADO representa los intereses de más de 2,200 productores, 19 empaques de aguacate presentes en Jalisco y 7 Juntas Locales de Sanidad Vegetal que trabajan con Aguacate.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+    </footer>
+
+    <!-- jquery -->
+    <script src = "../../libraries/jquery.min.3.6.0.js"></script>
+    <!-- jquery data tables -->
+    <script src="../../libraries/jquery.dataTables.min.1.11.3.js"></script>
+    <!-- data tables de bootstrap -->
+    <script src="../../libraries/dataTables.bootstrap5.min.1.11.3.js"></script>
+    <!-- tabs -->
+    <script src = "../../libraries/tabs.bootstrap.js"></script>
+    <!-- para el menú sticky -->
+	<script src = "../app.js"></script>
+    <!-- bootstrap -->
+    <script src = "../../libraries/bootstrap.min.js"></script>
+
+</body>
+</html>
