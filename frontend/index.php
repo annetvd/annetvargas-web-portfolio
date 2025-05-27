@@ -284,8 +284,8 @@ $index_url = "https://".$hostName;
                             </svg>
                         </span>
                     </a>
-                    <a href="read-more.pdf" target="_blank" class="col-9 col-sm-5 px-0 row shadow-css button bg-white bg-content mt-3 mt-sm-0" role="button" aria-label="Review the project">
-                        <span>Review the proyect <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="3 3 15 15" class="arrow-up" alt="" aria-hidden="true">
+                    <a href="https://www.ecorfan.org/spain/researchjournals/Desarrollo_Tecnologico/vol6num18/Journal_of_Technological_Development_V6_N18_1.pdf" target="_blank" class="col-9 col-sm-5 px-0 row shadow-css button bg-white bg-content mt-3 mt-sm-0" role="button" aria-label="Review the project">
+                        <span>Project insights <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="3 3 15 15" class="arrow-up" alt="" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.22-7.22v5.69a.75.75 0 0 0 1.5 0v-7.5a.75.75 0 0 0-.75-.75h-7.5a.75.75 0 0 0 0 1.5h5.69l-7.22 7.22a.75.75 0 0 0 0 1.06Z" clip-rule="evenodd" />
                             </svg>
                         </span>
@@ -335,7 +335,7 @@ $index_url = "https://".$hostName;
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" alt="phone">
                             <path fill-rule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clip-rule="evenodd" />
                         </svg>
-                        <p>+52 341 105 7551</p>
+                        <p>+52 341 410 0007 </p>
                     </span>
                     <span class="d-block d-sm-none m-0 mt-2 p-0"></span>
                     <span class="me-5 me-sm-3 me-xxl-4 pe-3">
@@ -350,8 +350,8 @@ $index_url = "https://".$hostName;
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20" class="mb-0" alt="LinkedIn profile">
                             <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
                         </svg>
-                        <a href="https://www.linkedin.com/in/annet-vargas-dueñas" target="_blank">
-                            https://www.linkedin.com/in/annet-vargas-dueñas
+                        <a href="https://www.linkedin.com/in/annet-vargas" target="_blank">
+                            https://www.linkedin.com/in/annet-vargas
                         </a>
                     </span>
                 </div>

@@ -4,4 +4,4 @@
 
 AddType text/vtt .vtt
 
-# RedirectMatch 301 ^/awococado/(.*)$ https://awococado.annetvargas.top/$1
+RedirectMatch 301 ^/awococado/(.*)$ https://awococado.annetvargas.top/$1
